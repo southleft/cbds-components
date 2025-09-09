@@ -1,0 +1,22 @@
+{
+  "color": {
+    "bg": {
+      "surface": { 
+        "primary": { "value": "#0b0d12" }, 
+        "raised": { "value": "#12151d" } 
+      },
+      "inverse": { "value": "#ffffff" }
+    },
+    "fg": {
+      "default": { "value": "#eef2f6" },
+      "muted": { "value": "#9aa3b2" },
+      "onInverse": { "value": "#0b0d12" },
+      "brand": { "value": "#60a5fa" },
+      "danger": { "value": "#f87171" }
+    },
+    "border": { 
+      "subtle": { "value": "#202737" }, 
+      "strong": { "value": "#2a3347" } 
+    }
+  }
+}

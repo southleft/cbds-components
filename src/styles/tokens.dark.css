@@ -1,0 +1,16 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root[data-theme='dark'] {
+  --tenet-color-bg-surface-primary: #0b0d12;
+  --tenet-color-bg-surface-raised: #12151d;
+  --tenet-color-bg-inverse: #ffffff;
+  --tenet-color-fg-default: #eef2f6;
+  --tenet-color-fg-muted: #9aa3b2;
+  --tenet-color-fg-on-inverse: #0b0d12;
+  --tenet-color-fg-brand: #60a5fa;
+  --tenet-color-fg-danger: #f87171;
+  --tenet-color-border-subtle: #202737;
+  --tenet-color-border-strong: #2a3347;
+}

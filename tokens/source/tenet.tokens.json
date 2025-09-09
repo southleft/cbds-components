@@ -1,0 +1,48 @@
+{
+  "color": {
+    "bg": {
+      "surface": { 
+        "primary": { "value": "#ffffff" }, 
+        "raised": { "value": "#f6f7f9" } 
+      },
+      "inverse": { "value": "#0b0d12" }
+    },
+    "fg": {
+      "default": { "value": "#0b0d12" },
+      "muted": { "value": "#5a6270" },
+      "onInverse": { "value": "#ffffff" },
+      "brand": { "value": "#3b82f6" },
+      "danger": { "value": "#ef4444" }
+    },
+    "border": { 
+      "subtle": { "value": "#e2e8f0" }, 
+      "strong": { "value": "#cbd5e1" } 
+    }
+  },
+  "radius": { 
+    "sm": { "value": "4px" }, 
+    "md": { "value": "8px" }, 
+    "lg": { "value": "12px" } 
+  },
+  "space": { 
+    "1": { "value": "4px" }, 
+    "2": { "value": "8px" }, 
+    "3": { "value": "12px" }, 
+    "4": { "value": "16px" }, 
+    "6": { "value": "24px" } 
+  },
+  "font": { 
+    "size": { 
+      "sm": { "value": "14px" }, 
+      "md": { "value": "16px" } 
+    }, 
+    "weight": { 
+      "regular": { "value": "400" }, 
+      "semi": { "value": "600" } 
+    } 
+  },
+  "elevation": { 
+    "1": { "value": "0 1px 2px rgba(0,0,0,0.06)" }, 
+    "2": { "value": "0 2px 8px rgba(0,0,0,0.08)" } 
+  }
+}

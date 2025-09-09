@@ -1,0 +1,47 @@
+/* Button component styles using Tenet tokens */
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: calc(var(--space-2) + 2px) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-raised);
+  color: var(--fg-default);
+  box-shadow: var(--elevation-1);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.root:hover { 
+  transform: translateY(-1px); 
+  box-shadow: var(--elevation-2); 
+}
+
+.root:active { 
+  transform: translateY(0); 
+}
+
+.primary { 
+  background: var(--brand); 
+  color: var(--tenet-color-fg-onInverse, #fff); 
+  border-color: transparent; 
+}
+
+.danger { 
+  background: var(--danger); 
+  color: var(--tenet-color-fg-onInverse, #fff); 
+  border-color: transparent; 
+}
+
+.ghost { 
+  background: transparent; 
+  border-color: var(--border-strong); 
+}
+
+.sm { 
+  padding: var(--space-1) var(--space-3); 
+  border-radius: var(--radius-sm); 
+  font-size: var(--font-size-sm); 
+}

@@ -1,0 +1,7 @@
+/* Modern CSS reset for consistent baseline */
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html,body,#root{height:100%}
+body{line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg,video,canvas{display:block;max-width:100%}
+button,input,select,textarea{font:inherit}
