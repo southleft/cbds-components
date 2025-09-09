@@ -1,33 +1,72 @@
-/* Bridge Tenet tokens to semantic CSS variables */
+/* Bridge CBDS tokens to semantic CSS variables for general app usage */
 :root {
   color-scheme: light;
-  --bg-surface: var(--tenet-color-bg-surface-primary, #ffffff);
-  --bg-raised: var(--tenet-color-bg-surface-raised, #f6f7f9);
-  --fg-default: var(--tenet-color-fg-default, #0b0d12);
-  --fg-muted: var(--tenet-color-fg-muted, #5a6270);
-  --brand: var(--tenet-color-fg-brand, #3b82f6);
-  --danger: var(--tenet-color-fg-danger, #ef4444);
-  --border-subtle: var(--tenet-color-border-subtle, #e2e8f0);
-  --border-strong: var(--tenet-color-border-strong, #cbd5e1);
-  --radius-sm: var(--tenet-radius-sm, 4px);
-  --radius-md: var(--tenet-radius-md, 8px);
-  --radius-lg: var(--tenet-radius-lg, 12px);
-  --space-1: var(--tenet-space-1, 4px);
-  --space-2: var(--tenet-space-2, 8px);
-  --space-3: var(--tenet-space-3, 12px);
-  --space-4: var(--tenet-space-4, 16px);
-  --space-6: var(--tenet-space-6, 24px);
-  --elevation-1: var(--tenet-elevation-1, 0 1px 2px rgba(0,0,0,0.06));
-  --elevation-2: var(--tenet-elevation-2, 0 2px 8px rgba(0,0,0,0.08));
-  --font-size-sm: var(--tenet-font-size-sm, 14px);
-  --font-size-md: var(--tenet-font-size-md, 16px);
-  --font-weight-regular: var(--tenet-font-weight-regular, 400);
-  --font-weight-semi: var(--tenet-font-weight-semi, 600);
+  
+  /* Background colors */
+  --bg-surface: var(--cbds-bg-surface-primary);
+  --bg-surface-secondary: var(--cbds-bg-surface-secondary);
+  --bg-surface-tertiary: var(--cbds-bg-surface-tertiary);
+  --bg-base: var(--cbds-bg-base);
+  
+  /* Text colors */
+  --fg-default: var(--cbds-text-primary);
+  --fg-secondary: var(--cbds-text-secondary);
+  --fg-muted: var(--cbds-text-tertiary);
+  --fg-disabled: var(--cbds-text-disabled);
+  
+  /* Brand colors */
+  --brand: var(--cbds-bg-brand-default);
+  --brand-hover: var(--cbds-bg-brand-hover);
+  --brand-pressed: var(--cbds-bg-brand-pressed);
+  
+  /* Semantic colors */
+  --danger: var(--cbds-bg-danger-default);
+  --warning: var(--cbds-bg-warning-default);
+  --success: var(--cbds-bg-positive-default);
+  --info: var(--cbds-bg-info-default);
+  
+  /* Borders */
+  --border-subtle: var(--cbds-border-tertiary);
+  --border-default: var(--cbds-border-secondary);
+  --border-strong: var(--cbds-border-primary);
+  --border-focus: var(--cbds-border-focus);
+  
+  /* Border radius */
+  --radius-sm: var(--cbds-corner-radius-050);
+  --radius-md: var(--cbds-corner-radius-100);
+  --radius-lg: var(--cbds-corner-radius-150);
+  --radius-xl: var(--cbds-corner-radius-200);
+  
+  /* Spacing */
+  --space-1: var(--cbds-spacing-050);
+  --space-2: var(--cbds-spacing-100);
+  --space-3: var(--cbds-spacing-150);
+  --space-4: var(--cbds-spacing-200);
+  --space-5: var(--cbds-spacing-300);
+  --space-6: var(--cbds-spacing-400);
+  --space-8: var(--cbds-spacing-600);
+  
+  /* Elevations */
+  --elevation-1: var(--cbds-elevation-small);
+  --elevation-2: var(--cbds-elevation-medium);
+  --elevation-3: var(--cbds-elevation-large);
+  
+  /* Typography */
+  --font-size-xs: var(--cbds-font-size-21);
+  --font-size-sm: var(--cbds-font-size-19);
+  --font-size-md: var(--cbds-font-size-17);
+  --font-size-lg: var(--cbds-font-size-14);
+  --font-size-xl: var(--cbds-font-size-12);
+  
+  --font-weight-regular: var(--cbds-font-weights-inter-1);
+  --font-weight-semi: var(--cbds-font-weights-inter-2);
+  --font-weight-bold: var(--cbds-font-weights-inter-0);
   
   /* Apply base theme */
-  background: var(--bg-surface);
+  background: var(--bg-base);
   color: var(--fg-default);
   font-size: var(--font-size-md);
+  font-family: var(--cbds-font-families-inter), system-ui, -apple-system, sans-serif;
 }
 
 :root[data-theme='dark'] {

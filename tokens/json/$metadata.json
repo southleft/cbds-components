@@ -1,0 +1,12 @@
+{
+  "tokenSetOrder": [
+    "global",
+    "colour primitive/Mode 1",
+    "colour semantic/Light",
+    "colour semantic/Dark",
+    "text primitive/Mode 1",
+    "text semantic/Default",
+    "text semantic/Secondary",
+    "number primitive/Mode 1"
+  ]
+}

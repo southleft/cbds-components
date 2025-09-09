@@ -1,0 +1,158 @@
+{
+  "spacing": {
+    "100": {
+      "value": 8,
+      "type": "number"
+    },
+    "150": {
+      "value": 12,
+      "type": "number"
+    },
+    "200": {
+      "value": 16,
+      "type": "number"
+    },
+    "300": {
+      "value": 24,
+      "type": "number"
+    },
+    "400": {
+      "value": 32,
+      "type": "number"
+    },
+    "500": {
+      "value": 40,
+      "type": "number"
+    },
+    "600": {
+      "value": 48,
+      "type": "number"
+    },
+    "800": {
+      "value": 64,
+      "type": "number"
+    },
+    "1000": {
+      "value": 80,
+      "type": "number"
+    },
+    "1200": {
+      "value": 96,
+      "type": "number"
+    },
+    "1600": {
+      "value": 128,
+      "type": "number"
+    },
+    "2000": {
+      "value": 160,
+      "type": "number"
+    },
+    "025": {
+      "value": 2,
+      "type": "number"
+    },
+    "050": {
+      "value": 4,
+      "type": "number"
+    },
+    "050 negative": {
+      "value": -4,
+      "type": "number"
+    },
+    "100 negative": {
+      "value": -8,
+      "type": "number"
+    },
+    "200 negative": {
+      "value": -16,
+      "type": "number"
+    },
+    "300 negative": {
+      "value": -24,
+      "type": "number"
+    },
+    "150 negative": {
+      "value": -12,
+      "type": "number"
+    }
+  },
+  "icon-size": {
+    "xsmall": {
+      "value": 12,
+      "type": "number"
+    },
+    "medium": {
+      "value": 20,
+      "type": "number"
+    },
+    "large": {
+      "value": 24,
+      "type": "number"
+    },
+    "xlarge": {
+      "value": 32,
+      "type": "number"
+    },
+    "small": {
+      "value": 16,
+      "type": "number"
+    },
+    "2xlarge": {
+      "value": 48,
+      "type": "number"
+    }
+  },
+  "component-size": {
+    "xsmall": {
+      "value": 16,
+      "type": "number"
+    },
+    "medium": {
+      "value": 32,
+      "type": "number"
+    },
+    "large": {
+      "value": 40,
+      "type": "number"
+    },
+    "xlarge": {
+      "value": 48,
+      "type": "number"
+    },
+    "small": {
+      "value": 24,
+      "type": "number"
+    }
+  },
+  "corner-radius": {
+    "100": {
+      "value": 8,
+      "type": "number"
+    },
+    "150": {
+      "value": 12,
+      "type": "number"
+    },
+    "200": {
+      "value": 16,
+      "type": "number"
+    },
+    "250": {
+      "value": 20,
+      "type": "number"
+    },
+    "300": {
+      "value": 24,
+      "type": "number"
+    },
+    "1200": {
+      "value": 96,
+      "type": "number"
+    },
+    "050": {
+      "value": 4,
+      "type": "number"
+    }
+  }
+}

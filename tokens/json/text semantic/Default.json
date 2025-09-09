@@ -1,0 +1,158 @@
+{
+  "font-family": {
+    "value": "{font-default}",
+    "type": "text"
+  },
+  "font-weight-regular": {
+    "value": "{weight-regular}",
+    "type": "text"
+  },
+  "font-weight-semibold": {
+    "value": "{weight-semi-bold}",
+    "type": "text"
+  },
+  "font-weight-bold": {
+    "value": "{weight-bold}",
+    "type": "text"
+  },
+  "body": {
+    "font-small": {
+      "value": "{font-size-100}",
+      "type": "number"
+    },
+    "font-medium": {
+      "value": "{font-size-200}",
+      "type": "number"
+    },
+    "font-large": {
+      "value": "{font-size-300}",
+      "type": "number"
+    },
+    "font-xlarge": {
+      "value": "{font-size-400}",
+      "type": "number"
+    },
+    "line-height-small": {
+      "value": "{line-height-100}",
+      "type": "number"
+    },
+    "line-height-medium": {
+      "value": "{line-height-200}",
+      "type": "number"
+    },
+    "line-height-large": {
+      "value": "{line-height-300}",
+      "type": "number"
+    },
+    "line-height-xlarge": {
+      "value": "{line-height-400}",
+      "type": "number"
+    },
+    "font-xsmall": {
+      "value": "{font-size-50}",
+      "type": "number"
+    }
+  },
+  "label": {
+    "font-small": {
+      "value": "{font-size-100}",
+      "type": "number"
+    },
+    "font-medium": {
+      "value": "{font-size-200}",
+      "type": "number"
+    },
+    "font-large": {
+      "value": "{font-size-300}",
+      "type": "number"
+    },
+    "font-xlarge": {
+      "value": "{font-size-400}",
+      "type": "number"
+    },
+    "line-height-small": {
+      "value": "{line-height-100}",
+      "type": "number"
+    },
+    "line-height-medium": {
+      "value": "{line-height-100}",
+      "type": "number"
+    },
+    "line-height-large": {
+      "value": "{line-height-200}",
+      "type": "number"
+    },
+    "line-height-xlarge": {
+      "value": "{line-height-300}",
+      "type": "number"
+    }
+  },
+  "heading": {
+    "font-small": {
+      "value": "{font-size-500}",
+      "type": "number"
+    },
+    "font-medium": {
+      "value": "{font-size-600}",
+      "type": "number"
+    },
+    "font-large": {
+      "value": "{font-size-700}",
+      "type": "number"
+    },
+    "font-xlarge": {
+      "value": "{font-size-800}",
+      "type": "number"
+    },
+    "line-height-small": {
+      "value": "{line-height-400}",
+      "type": "number"
+    },
+    "line-height-medium": {
+      "value": "{line-height-500}",
+      "type": "number"
+    },
+    "line-height-large": {
+      "value": "{line-height-600}",
+      "type": "number"
+    },
+    "line-height-xlarge": {
+      "value": "{line-height-700}",
+      "type": "number"
+    }
+  },
+  "display": {
+    "font-small": {
+      "value": "{font-size-900}",
+      "type": "number"
+    },
+    "font-medium": {
+      "value": "{font-size-1000}",
+      "type": "number"
+    },
+    "font-large": {
+      "value": "{font-size-1100}",
+      "type": "number"
+    },
+    "font-xlarge": {
+      "value": "{font-size-1200}",
+      "type": "number"
+    },
+    "line-height-small": {
+      "value": "{line-height-800}",
+      "type": "number"
+    },
+    "line-height-medium": {
+      "value": "{line-height-900}",
+      "type": "number"
+    },
+    "line-height-large": {
+      "value": "{line-height-1000}",
+      "type": "number"
+    },
+    "line-height-xlarge": {
+      "value": "{line-height-1100}",
+      "type": "number"
+    }
+  }
+}

@@ -1,47 +1,190 @@
-/* Button component styles using Tenet tokens */
-.root {
+/* ------------------------------------*\
+  #BUTTON
+\*------------------------------------ */
+
+/**
+ * Button base - Brand Primary (default)
+ * Matches Figma Button-Brand Primary component
+ * Using Token Studio parsed tokens from tokens.css
+ */
+.cbds-c-button {
   display: inline-flex;
-  align-items: center;
   justify-content: center;
-  gap: var(--space-2);
-  padding: calc(var(--space-2) + 2px) var(--space-4);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-raised);
-  color: var(--fg-default);
-  box-shadow: var(--elevation-1);
+  align-items: center;
+  gap: var(--cbds-spacing-100); /* spacing/100 = 8px */
+  margin: 0;
+  padding: var(--cbds-spacing-100) var(--cbds-spacing-200); /* spacing/100 spacing/200 */
+  border: none;
+  border-radius: var(--cbds-corner-radius-100); /* corner-radius/100 = 8px */
+  text-decoration: none;
   cursor: pointer;
-  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  transition: all 120ms ease;
+  position: relative;
+  background-color: var(--cbds-bg-brand-default); /* bg/brand/default */
+  color: var(--cbds-text-inverse-primary); /* text/inverse-primary */
+  font-family: var(--cbds-font-families-inter, Inter), system-ui, -apple-system, sans-serif;
+  font-size: var(--cbds-font-size-17); /* label/font-large = 16px */
+  font-weight: var(--cbds-font-weights-inter-2); /* Semi Bold */
+  line-height: var(--cbds-line-heights-17); /* label/line-height-large = 20px */
+  white-space: nowrap;
+  outline: none;
+  min-height: var(--cbds-component-size-large); /* component-size/large = 40px */
+  
+  /**
+   * Hover state
+   */
+  &:hover:not(:active, :disabled) {
+    background-color: var(--cbds-bg-brand-hover); /* bg/brand/hover */
+  }
+
+  /**
+   * Active/Pressed state
+   */
+  &:active:not(:disabled) {
+    background-color: var(--cbds-bg-brand-pressed); /* bg/brand/pressed */
+  }
+
+  /**
+   * Focus outline for A11y
+   * Creates a focus ring matching Figma design with 2px gap
+   * Using outline with offset to create the gap
+   */
+  &:focus-visible {
+    outline: 2px solid var(--cbds-border-focus);
+    outline-offset: 2px;
+  }
+
+  /**
+   * Disabled state
+   */
+  &:disabled {
+    background-color: var(--cbds-bg-disabled); /* bg/disabled */
+    color: var(--cbds-text-disabled); /* text/disabled */
+    cursor: not-allowed;
+  }
 }
 
-.root:hover { 
-  transform: translateY(-1px); 
-  box-shadow: var(--elevation-2); 
+/**
+ * Surface button variant
+ * Light grey background button
+ */
+.cbds-c-button--surface {
+  background-color: var(--cbds-bg-surface-secondary); /* bg/surface-secondary */
+  color: var(--cbds-text-primary); /* text/primary */
+
+  /**
+   * Hover state
+   */
+  &:hover:not(:active, :disabled) {
+    background-color: var(--cbds-bg-surface-secondary-hover); /* bg/surface-secondary-hover */
+  }
+
+  /**
+   * Active state
+   */
+  &:active:not(:disabled) {
+    background-color: var(--cbds-bg-surface-secondary-pressed); /* bg/surface-secondary-pressed */
+  }
 }
 
-.root:active { 
-  transform: translateY(0); 
+/**
+ * Danger button variant
+ * Red/destructive action button
+ */
+.cbds-c-button--danger {
+  background-color: var(--cbds-bg-danger-default); /* bg/danger/default */
+  color: var(--cbds-text-inverse-primary); /* text/inverse-primary */
+
+  /**
+   * Hover state
+   */
+  &:hover:not(:active, :disabled) {
+    background-color: var(--cbds-bg-danger-hover); /* bg/danger/hover */
+  }
+
+  /**
+   * Active state
+   */
+  &:active:not(:disabled) {
+    background-color: var(--cbds-bg-danger-pressed); /* bg/danger/pressed */
+  }
 }
 
-.primary { 
-  background: var(--brand); 
-  color: var(--tenet-color-fg-onInverse, #fff); 
-  border-color: transparent; 
+/**
+ * Ghost button variant
+ * Outline/transparent button
+ */
+.cbds-c-button--ghost {
+  background-color: transparent;
+  border: 1px solid var(--cbds-border-primary); /* border/primary */
+  color: var(--cbds-text-primary); /* text/primary */
+
+  /**
+   * Hover state
+   */
+  &:hover:not(:active, :disabled) {
+    background-color: var(--cbds-bg-surface-primary-hover); /* subtle hover background */
+    border-color: var(--cbds-border-primary-hover); /* border/primary-hover */
+  }
+
+  /**
+   * Active state
+   */
+  &:active:not(:disabled) {
+    background-color: var(--cbds-bg-surface-primary-pressed); /* subtle pressed background */
+    border-color: var(--cbds-border-strong); /* border/strong */
+  }
+
+  /**
+   * Disabled state
+   */
+  &:disabled {
+    background-color: transparent;
+    border-color: var(--cbds-border-secondary); /* border/secondary */
+    color: var(--cbds-text-disabled); /* text/disabled */
+  }
 }
 
-.danger { 
-  background: var(--danger); 
-  color: var(--tenet-color-fg-onInverse, #fff); 
-  border-color: transparent; 
+/**
+ * Size variants
+ */
+
+/**
+ * Small button size
+ * 32px height (component-size/medium)
+ */
+.cbds-c-button--small {
+  padding: var(--cbds-spacing-100) var(--cbds-spacing-150); /* spacing/100 spacing/150 */
+  font-size: var(--cbds-font-size-19); /* font-size-19 = 14px */
+  line-height: var(--cbds-line-heights-19); /* line-height-19 = 16px */
+  min-height: var(--cbds-component-size-medium); /* component-size/medium = 32px */
 }
 
-.ghost { 
-  background: transparent; 
-  border-color: var(--border-strong); 
+/**
+ * Medium button size
+ * 40px height (component-size/large) - same as default
+ */
+.cbds-c-button--medium {
+  padding: var(--cbds-spacing-100) var(--cbds-spacing-200); /* spacing/100 spacing/200 */
+  font-size: var(--cbds-font-size-17); /* font-size-17 = 16px */
+  line-height: var(--cbds-line-heights-17); /* line-height-17 = 20px */
+  min-height: var(--cbds-component-size-large); /* component-size/large = 40px */
 }
 
-.sm { 
-  padding: var(--space-1) var(--space-3); 
-  border-radius: var(--radius-sm); 
-  font-size: var(--font-size-sm); 
+/**
+ * Large button size
+ * 48px height (component-size/xlarge)
+ */
+.cbds-c-button--large {
+  padding: var(--cbds-spacing-100) var(--cbds-spacing-200); /* Same padding as per Figma */
+  font-size: var(--cbds-font-size-17); /* Same font size as per Figma */
+  line-height: var(--cbds-line-heights-17); /* line-height-17 = 20px */
+  min-height: var(--cbds-component-size-xlarge); /* component-size/xlarge = 48px */
+}
+
+/**
+ * Full-width button
+ */
+.cbds-c-button--full-width {
+  width: 100%;
 }
