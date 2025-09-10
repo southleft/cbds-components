@@ -1,0 +1,86 @@
+/* ------------------------------------*\
+  #AVATAR-INDICATOR
+\*------------------------------------ */
+
+/**
+ * AvatarIndicator base
+ * Small circular indicator for avatar status/presence
+ * Using Token Studio parsed tokens from tokens.css
+ */
+.cbds-c-avatar-indicator {
+  display: inline-block;
+  border-radius: 50%;
+  /* Default border from Figma design */
+  box-shadow: 0 0 0 1px var(--cbds-border-tertiary);
+  /* Smooth transition for color changes */
+  transition: background-color 120ms ease;
+}
+
+/**
+ * Type variants
+ */
+
+/**
+ * Green indicator - Active/Online status
+ */
+.cbds-c-avatar-indicator--green {
+  background-color: var(--cbds-bg-positive-default);
+}
+
+/**
+ * Grey indicator - Inactive/Offline status (default)
+ */
+.cbds-c-avatar-indicator--grey {
+  background-color: var(--cbds-bg-neutral-weak);
+}
+
+/**
+ * Red indicator - Busy/Do not disturb status
+ */
+.cbds-c-avatar-indicator--red {
+  background-color: var(--cbds-bg-danger-default);
+}
+
+/**
+ * Size variants
+ */
+
+/**
+ * Extra small size - 6px
+ */
+.cbds-c-avatar-indicator--xsmall {
+  width: 6px;
+  height: 6px;
+}
+
+/**
+ * Small size - 8px
+ */
+.cbds-c-avatar-indicator--small {
+  width: 8px;
+  height: 8px;
+}
+
+/**
+ * Medium size - 10px
+ */
+.cbds-c-avatar-indicator--medium {
+  width: 10px;
+  height: 10px;
+}
+
+/**
+ * Large size - 12px
+ */
+.cbds-c-avatar-indicator--large {
+  width: 12px;
+  height: 12px;
+}
+
+/**
+ * Extra large size - 14px
+ */
+.cbds-c-avatar-indicator--xlarge {
+  width: 14px;
+  height: 14px;
+}

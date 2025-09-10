@@ -18,15 +18,15 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
  * Button component matching CBDS Figma design specifications
  * Follows BEM naming conventions with cbds-c-button namespace
  */
-export const Button: React.FC<ButtonProps> = ({ 
-  variant = "primary", 
-  size = "medium", 
+export const Button: React.FC<ButtonProps> = ({
+  variant = "primary",
+  size = "medium",
   fullWidth = false,
   iconLeft,
   iconRight,
   className,
   children,
-  ...props 
+  ...props
 }) => {
   return (
     <button
