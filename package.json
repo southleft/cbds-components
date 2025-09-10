@@ -11,9 +11,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "npm run tokens && storybook build"
+    "build-storybook": "npm run tokens && storybook build",
+    "story-ui": "story-ui start --port 4001",
+    "storybook-with-ui": "concurrently \"npm run storybook\" \"npm run story-ui\""
   },
   "dependencies": {
+    "@tpitre/story-ui": "^2.2.0",
     "clsx": "^2.1.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"

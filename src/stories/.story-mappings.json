@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Page With Some Buttons And Avatar Indicators",
+    "fileName": "page-with-some-buttons-and-avatar-indicators-3437f11b.stories.tsx",
+    "storyId": "story-3437f11b",
+    "hash": "3437f11b",
+    "createdAt": "2025-09-10T14:59:45.133Z",
+    "updatedAt": "2025-09-10T14:59:45.133Z",
+    "prompt": "Generate a page with some buttons and avatar indicators "
+  },
+  {
+    "title": "Button Variations with Avatar Indicators",
+    "fileName": "button-variations-with-avatar-indicators-64ffe981.stories.tsx",
+    "storyId": "story-64ffe981",
+    "hash": "64ffe981",
+    "createdAt": "2025-09-10T15:16:29.362Z",
+    "updatedAt": "2025-09-10T15:16:29.362Z",
+    "prompt": "Can you generate a story with a couple of button variations with avatar indicators? "
+  },
+  {
+    "title": "Button Variations",
+    "fileName": "button-variations-950ebed7.stories.tsx",
+    "storyId": "story-950ebed7",
+    "hash": "950ebed7",
+    "createdAt": "2025-09-10T15:21:21.045Z",
+    "updatedAt": "2025-09-10T15:21:21.045Z",
+    "prompt": "Please generate several button variations. "
+  },
+  {
+    "title": "Avatar Indicators Page",
+    "fileName": "avatar-indicators-page-11aa5533.stories.tsx",
+    "storyId": "story-11aa5533",
+    "hash": "11aa5533",
+    "createdAt": "2025-09-10T15:22:01.135Z",
+    "updatedAt": "2025-09-10T15:22:01.135Z",
+    "prompt": "Please generate a page full of avatar indicators. "
+  }
+]

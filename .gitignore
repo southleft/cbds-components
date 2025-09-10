@@ -29,3 +29,8 @@ storybook-static
 # Token build temporary files
 tokens/temp
 tokens/*.zip
+
+.env
+src/stories/generated
+src/stories/StoryUI/
+.story-ui-history/
