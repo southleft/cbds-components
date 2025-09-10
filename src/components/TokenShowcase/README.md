@@ -1,10 +1,10 @@
 # TokenShowcase Component
 
-A comprehensive demonstration component that showcases all Tenet design tokens and verifies the integration is working correctly.
+A comprehensive demonstration component that showcases all CBDS design tokens and verifies the integration is working correctly.
 
 ## Overview
 
-The `TokenShowcase` component provides a visual reference for the entire Tenet design system, displaying:
+The `TokenShowcase` component provides a visual reference for the entire CBDS design system, displaying:
 
 - **Semantic Colors**: Brand, success, error, warning, neutral, accent, and info colors
 - **Color Palettes**: Full primitive color scales (grey, blue, green, red, yellow, indigo)
@@ -98,14 +98,14 @@ TokenShowcase/
 
 ## CSS Custom Properties Used
 
-The component uses the complete set of Tenet design tokens via CSS custom properties:
+The component uses the complete set of CBDS design tokens via CSS custom properties:
 
-- `--tenet-*-color-*`: All color tokens (primitive and semantic)
-- `--tenet-spacing-*`: Spacing scale tokens
-- `--tenet-font-*`: Typography tokens
-- `--tenet-corner-radius-*`: Border radius tokens
-- `--tenet-elevation-*`: Shadow/elevation tokens
-- `--tenet-component-size-*`: Component sizing tokens
+- `--cbds-*-color-*`: All color tokens (primitive and semantic)
+- `--cbds-spacing-*`: Spacing scale tokens
+- `--cbds-font-*`: Typography tokens
+- `--cbds-corner-radius-*`: Border radius tokens
+- `--cbds-elevation-*`: Shadow/elevation tokens
+- `--cbds-component-size-*`: Component sizing tokens
 
 ## Theme Implementation
 

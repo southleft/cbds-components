@@ -1,6 +1,6 @@
-# Tenet UI Design Tokens
+# CBDS UI Design Tokens
 
-This directory contains the design tokens for the Tenet UI component library. The tokens are managed using Token Studio and processed by Style Dictionary to generate CSS custom properties.
+This directory contains the design tokens for the CBDS UI component library. The tokens are managed using Token Studio and processed by Style Dictionary to generate CSS custom properties.
 
 ## Directory Structure
 
@@ -69,14 +69,14 @@ Semantic tokens reference primitive colors and provide meaningful names:
 
 /* Use semantic tokens in your components */
 .button {
-  background-color: var(--tenet-bg-brand-default);
-  color: var(--tenet-text-inverse-primary);
-  padding: var(--tenet-spacing-100) var(--tenet-spacing-200);
-  border-radius: var(--tenet-corner-radius-050);
+  background-color: var(--cbds-bg-brand-default);
+  color: var(--cbds-text-inverse-primary);
+  padding: var(--cbds-spacing-100) var(--cbds-spacing-200);
+  border-radius: var(--cbds-corner-radius-050);
 }
 
 .button:hover {
-  background-color: var(--tenet-bg-brand-hover);
+  background-color: var(--cbds-bg-brand-hover);
 }
 ```
 
@@ -94,10 +94,10 @@ Semantic tokens reference primitive colors and provide meaningful names:
 
 ### TypeScript
 ```ts
-import type { TenetVar } from './src/styles/tokens';
+import type { CBDSVar } from './src/styles/tokens';
 
 // Get TypeScript autocomplete for all token names
-const primaryBg: TenetVar = '--tenet-bg-brand-default';
+const primaryBg: CBDSVar = '--cbds-bg-brand-default';
 ```
 
 ## Building Tokens
@@ -112,7 +112,7 @@ This command:
 1. Loads Token Studio JSON files from `tokens/json/`
 2. Merges primitive and semantic tokens
 3. Handles token references (e.g., `{light.blue.600}`)
-4. Generates CSS custom properties with `--tenet-` prefix
+4. Generates CSS custom properties with `--cbds-` prefix
 5. Creates separate light and dark theme files
 6. Generates TypeScript definitions
 7. Cleans up temporary files
@@ -121,14 +121,14 @@ This command:
 
 All generated CSS custom properties follow this pattern:
 ```
---tenet-{category}-{subcategory}-{variant}
+--cbds-{category}-{subcategory}-{variant}
 ```
 
 Examples:
-- `--tenet-bg-brand-default`
-- `--tenet-text-danger-hover`
-- `--tenet-spacing-200`
-- `--tenet-corner-radius-100`
+- `--cbds-bg-brand-default`
+- `--cbds-text-danger-hover`
+- `--cbds-spacing-200`
+- `--cbds-corner-radius-100`
 
 ## Development Workflow
 

@@ -58,15 +58,15 @@
   --font-size-lg: var(--cbds-font-size-14);
   --font-size-xl: var(--cbds-font-size-12);
   
-  --font-weight-regular: var(--cbds-font-weights-inter-1);
-  --font-weight-semi: var(--cbds-font-weights-inter-2);
-  --font-weight-bold: var(--cbds-font-weights-inter-0);
+  --font-weight-regular: var(--cbds-font-weight-regular);
+  --font-weight-semi: var(--cbds-font-weight-semibold);
+  --font-weight-bold: var(--cbds-font-weight-bold);
   
   /* Apply base theme */
   background: var(--bg-base);
   color: var(--fg-default);
   font-size: var(--font-size-md);
-  font-family: var(--cbds-font-families-inter), system-ui, -apple-system, sans-serif;
+  font-family: var(--cbds-font-family-primary), system-ui, -apple-system, sans-serif;
 }
 
 :root[data-theme='dark'] {

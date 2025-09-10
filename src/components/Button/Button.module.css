@@ -22,9 +22,9 @@
   position: relative;
   background-color: var(--cbds-bg-brand-default); /* bg/brand/default */
   color: var(--cbds-text-inverse-primary); /* text/inverse-primary */
-  font-family: var(--cbds-font-families-inter, Inter), system-ui, -apple-system, sans-serif;
+  font-family: var(--cbds-font-family-primary, Inter), system-ui, -apple-system, sans-serif;
   font-size: var(--cbds-font-size-17); /* label/font-large = 16px */
-  font-weight: var(--cbds-font-weights-inter-2); /* Semi Bold */
+  font-weight: var(--cbds-font-weight-semibold); /* 600 */
   line-height: var(--cbds-line-heights-17); /* label/line-height-large = 20px */
   white-space: nowrap;
   outline: none;

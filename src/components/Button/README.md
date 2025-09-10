@@ -13,23 +13,23 @@ The Button component has been updated to:
 ## Button Variants
 
 ### Primary (Default)
-- Uses brand color tokens (`--tenet-bg-brand-*`)
+- Uses brand color tokens (`--cbds-bg-brand-*`)
 - White text on blue background
 - Default variant when no variant prop is specified
 
 ### Surface
-- Uses surface color tokens (`--tenet-bg-surface-secondary-*`)
+- Uses surface color tokens (`--cbds-bg-surface-secondary-*`)
 - Dark text on light grey background
 - For secondary actions
 
 ### Danger
-- Uses danger color tokens (`--tenet-bg-danger-*`)
+- Uses danger color tokens (`--cbds-bg-danger-*`)
 - White text on red background
 - For destructive actions
 
 ### Ghost
 - Transparent background with border
-- Uses border tokens (`--tenet-border-primary-*`)
+- Uses border tokens (`--cbds-border-primary-*`)
 - For tertiary actions
 
 ## Sizes

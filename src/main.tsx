@@ -8,7 +8,7 @@ import { Button } from "./components/Button/Button";
 import { TextField } from "./components/TextField/TextField";
 
 /**
- * Demo app showcasing Tenet UI components
+ * Demo app showcasing CBDS components
  * This runs outside of Storybook for standalone testing
  */
 function App() {

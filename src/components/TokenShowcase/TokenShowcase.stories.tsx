@@ -10,7 +10,7 @@ const meta: Meta<typeof TokenShowcase> = {
     docs: {
       description: {
         component: `
-The TokenShowcase component provides a comprehensive demonstration of all Tenet design tokens including:
+The TokenShowcase component provides a comprehensive demonstration of all CBDS design tokens including:
 
 - **Semantic Colors**: Brand, success, error, warning, neutral, accent, and info colors
 - **Color Palettes**: Full primitive color scales for grey, blue, green, red, yellow, and indigo
@@ -46,7 +46,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Complete showcase of all Tenet design tokens with interactive theme switching.
+ * Complete showcase of all CBDS design tokens with interactive theme switching.
  * This story demonstrates the design system's tokens in action and verifies 
  * that the CSS custom properties are properly loaded and working.
  */
@@ -95,12 +95,12 @@ while maintaining full token integration.
         <style>
           {`
             .custom-showcase-styling {
-              border: 2px solid var(--tenet-border-brand-default);
-              border-radius: var(--tenet-corner-radius-200);
+              border: 2px solid var(--cbds-border-brand-default);
+              border-radius: var(--cbds-corner-radius-200);
               background: linear-gradient(
                 135deg, 
-                var(--tenet-bg-brand-weakest) 0%, 
-                var(--tenet-bg-surface-primary) 100%
+                var(--cbds-bg-brand-weakest) 0%, 
+                var(--cbds-bg-surface-primary) 100%
               );
             }
           `}
@@ -131,8 +131,8 @@ with responsive grid layouts that maintain readability and usability.
       <div style={{ 
         maxWidth: '800px', 
         margin: '0 auto',
-        border: '1px solid var(--tenet-border-secondary)',
-        borderRadius: 'var(--tenet-corner-radius-100)'
+        border: '1px solid var(--cbds-border-secondary)',
+        borderRadius: 'var(--cbds-corner-radius-100)'
       }}>
         <Story />
       </div>

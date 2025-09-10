@@ -1,6 +1,6 @@
-# Tenet UI Workshop Sandbox
+# CBDS Components
 
-A production-ready Storybook environment for demonstrating Figma MCP component generation with the Tenet UI design system.
+A production-ready Storybook environment for demonstrating Figma MCP component generation with the CBDS design system.
 
 ## Quick Start
 
@@ -26,7 +26,7 @@ npm run dev
 
 ## Token Management
 
-Paste Tenet token exports into `tokens/source/*.json` keeping the same key structure. 
+Paste CBDS token exports into `tokens/json/*.json` keeping the same key structure. 
 Run `tokens:build` to regenerate CSS variables.
 
 ## Theme Switching
@@ -37,4 +37,4 @@ Use the theme toggle in the Storybook toolbar to switch between light and dark m
 
 - Hand-written components: `src/components/`
 - Generated components: `src/components/generated/`
-- All components use CSS Modules with Tenet design tokens
+- All components use CSS Modules with CBDS design tokens

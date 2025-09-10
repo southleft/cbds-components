@@ -7,7 +7,7 @@ export interface TokenShowcaseProps {
 }
 
 /**
- * TokenShowcase component demonstrates all Tenet design tokens
+ * TokenShowcase component demonstrates all CBDS design tokens
  * Shows colors, spacing, typography, elevations, and theme switching
  */
 export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
@@ -120,9 +120,9 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
   return (
     <div className={clsx(styles.root, className)}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Tenet Design Tokens</h1>
+        <h1 className={styles.title}>CBDS Design Tokens</h1>
         <p className={styles.subtitle}>
-          Complete showcase of the Tenet Design System tokens
+          Complete showcase of the CBDS Design System tokens
         </p>
         <button 
           className={styles.themeToggle} 
@@ -160,7 +160,7 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
               <h3 className={styles.paletteTitle}>{palette.name}</h3>
               <div className={styles.colorSwatches}>
                 {palette.colors.map((shade) => {
-                  const cssVar = `--tenet-${theme}-${palette.name.toLowerCase()}-${shade}`;
+                  const cssVar = `--cbds-${theme}-${palette.name.toLowerCase()}-${shade}`;
                   return (
                     <div
                       key={shade}
@@ -190,7 +190,7 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
               </div>
               <div 
                 className={styles.spacingDemo}
-                style={{ height: `var(--tenet-spacing-${space.name})` }}
+                style={{ height: `var(--cbds-spacing-${space.name})` }}
               />
             </div>
           ))}
@@ -210,16 +210,16 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
                 style={{ 
                   fontSize: typo.size,
                   fontWeight: typo.weight === 'Bold' ? 700 : typo.weight === 'Semi Bold' ? 600 : 400,
-                  fontFamily: 'var(--tenet-font-families-inter)',
-                  color: 'var(--tenet-text-primary)'
+                  fontFamily: 'var(--cbds-font-family-primary)',
+                  color: 'var(--cbds-text-primary)'
                 }}
               >
                 The quick brown fox jumps over the lazy dog
               </div>
               <div style={{ 
                 fontSize: '0.875rem', 
-                color: 'var(--tenet-text-secondary)',
-                marginTop: 'var(--tenet-spacing-050)'
+                color: 'var(--cbds-text-secondary)',
+                marginTop: 'var(--cbds-spacing-050)'
               }}>
                 {typo.usage}
               </div>
@@ -245,8 +245,8 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
               </div>
               <div style={{ 
                 fontSize: '0.875rem', 
-                color: 'var(--tenet-text-secondary)',
-                marginTop: 'var(--tenet-spacing-050)'
+                color: 'var(--cbds-text-secondary)',
+                marginTop: 'var(--cbds-spacing-050)'
               }}>
                 {elevation.description}
               </div>
@@ -273,9 +273,9 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
           </button>
         </div>
         <p style={{ 
-          marginTop: 'var(--tenet-spacing-200)',
+          marginTop: 'var(--cbds-spacing-200)',
           fontSize: '0.875rem',
-          color: 'var(--tenet-text-secondary)'
+          color: 'var(--cbds-text-secondary)'
         }}>
           Hover over buttons to see interactive states
         </p>
@@ -284,27 +284,27 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
       {/* Border Radius & Component Sizes */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Border Radius & Sizes</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--tenet-spacing-400)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--cbds-spacing-400)' }}>
           <div>
-            <h3 style={{ color: 'var(--tenet-text-primary)', marginBottom: 'var(--tenet-spacing-200)' }}>
+            <h3 style={{ color: 'var(--cbds-text-primary)', marginBottom: 'var(--cbds-spacing-200)' }}>
               Corner Radius
             </h3>
-            <div style={{ display: 'grid', gap: 'var(--tenet-spacing-150)' }}>
+            <div style={{ display: 'grid', gap: 'var(--cbds-spacing-150)' }}>
               {['050', '100', '150', '200', '250', '300'].map((radius) => (
                 <div key={radius} style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 'var(--tenet-spacing-200)'
+                  gap: 'var(--cbds-spacing-200)'
                 }}>
                   <div
                     style={{
                       width: '60px',
                       height: '60px',
-                      backgroundColor: 'var(--tenet-bg-brand-default)',
-                      borderRadius: `var(--tenet-corner-radius-${radius})`
+                      backgroundColor: 'var(--cbds-bg-brand-default)',
+                      borderRadius: `var(--cbds-corner-radius-${radius})`
                     }}
                   />
-                  <span style={{ color: 'var(--tenet-text-secondary)' }}>
+                  <span style={{ color: 'var(--cbds-text-secondary)' }}>
                     {radius} - {radius === '050' ? '0.25rem' : 
                               radius === '100' ? '0.5rem' :
                               radius === '150' ? '0.75rem' :
@@ -317,10 +317,10 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
           </div>
           
           <div>
-            <h3 style={{ color: 'var(--tenet-text-primary)', marginBottom: 'var(--tenet-spacing-200)' }}>
+            <h3 style={{ color: 'var(--cbds-text-primary)', marginBottom: 'var(--cbds-spacing-200)' }}>
               Component Sizes
             </h3>
-            <div style={{ display: 'grid', gap: 'var(--tenet-spacing-150)' }}>
+            <div style={{ display: 'grid', gap: 'var(--cbds-spacing-150)' }}>
               {[
                 { name: 'xsmall', value: '1rem' },
                 { name: 'small', value: '1.5rem' },
@@ -331,17 +331,17 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
                 <div key={size.name} style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 'var(--tenet-spacing-200)'
+                  gap: 'var(--cbds-spacing-200)'
                 }}>
                   <div
                     style={{
-                      width: `var(--tenet-component-size-${size.name})`,
-                      height: `var(--tenet-component-size-${size.name})`,
-                      backgroundColor: 'var(--tenet-bg-positive-default)',
-                      borderRadius: 'var(--tenet-corner-radius-050)'
+                      width: `var(--cbds-component-size-${size.name})`,
+                      height: `var(--cbds-component-size-${size.name})`,
+                      backgroundColor: 'var(--cbds-bg-positive-default)',
+                      borderRadius: 'var(--cbds-corner-radius-050)'
                     }}
                   />
-                  <span style={{ color: 'var(--tenet-text-secondary)' }}>
+                  <span style={{ color: 'var(--cbds-text-secondary)' }}>
                     {size.name} - {size.value}
                   </span>
                 </div>

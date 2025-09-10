@@ -1,4 +1,4 @@
-/* Card component styles using Tenet tokens */
+/* Card component styles using CBDS tokens */
 .card {
   background: var(--bg-raised);
   color: var(--fg-default);

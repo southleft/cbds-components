@@ -6,39 +6,39 @@ import React from "react";
 export const TokenTest: React.FC = () => {
   return (
     <div style={{
-      padding: 'var(--tenet-spacing-400)',
-      backgroundColor: 'var(--tenet-bg-surface-primary)',
-      color: 'var(--tenet-text-primary)',
-      fontFamily: 'var(--tenet-font-families-inter)',
-      borderRadius: 'var(--tenet-corner-radius-100)',
-      border: '1px solid var(--tenet-border-secondary)'
+      padding: 'var(--cbds-spacing-400)',
+      backgroundColor: 'var(--cbds-bg-surface-primary)',
+      color: 'var(--cbds-text-primary)',
+      fontFamily: 'var(--cbds-font-family-primary)',
+      borderRadius: 'var(--cbds-corner-radius-100)',
+      border: '1px solid var(--cbds-border-secondary)'
     }}>
-      <h2 style={{ color: 'var(--tenet-text-brand-default)' }}>
+      <h2 style={{ color: 'var(--cbds-text-brand-default)' }}>
         Token Integration Test
       </h2>
       <p>If you can see styled content here, the tokens are working!</p>
       <div style={{
         display: 'flex',
-        gap: 'var(--tenet-spacing-200)',
-        marginTop: 'var(--tenet-spacing-200)'
+        gap: 'var(--cbds-spacing-200)',
+        marginTop: 'var(--cbds-spacing-200)'
       }}>
         <div style={{
           width: '50px',
           height: '50px',
-          backgroundColor: 'var(--tenet-bg-brand-default)',
-          borderRadius: 'var(--tenet-corner-radius-100)'
+          backgroundColor: 'var(--cbds-bg-brand-default)',
+          borderRadius: 'var(--cbds-corner-radius-100)'
         }} />
         <div style={{
           width: '50px',
           height: '50px',
-          backgroundColor: 'var(--tenet-bg-positive-default)',
-          borderRadius: 'var(--tenet-corner-radius-100)'
+          backgroundColor: 'var(--cbds-bg-positive-default)',
+          borderRadius: 'var(--cbds-corner-radius-100)'
         }} />
         <div style={{
           width: '50px',
           height: '50px',
-          backgroundColor: 'var(--tenet-bg-danger-default)',
-          borderRadius: 'var(--tenet-corner-radius-100)'
+          backgroundColor: 'var(--cbds-bg-danger-default)',
+          borderRadius: 'var(--cbds-corner-radius-100)'
         }} />
       </div>
     </div>

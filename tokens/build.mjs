@@ -12,7 +12,38 @@ const toKebab = s => s.replace(/([a-z0-9])([A-Z])/g, "$1-$2").replace(/\./g, "-"
 StyleDictionary.registerTransform({
   name: "name/cbds-kebab",
   type: "name",
-  transform: prop => `cbds-${toKebab(prop.path.join("-"))}`
+  transform: prop => {
+    // Special handling for font tokens
+    if (prop.path[0] === "fontFamilies") {
+      // For font families, use a clean naming without the font name in the token
+      if (prop.path[1] === "inter") {
+        return `cbds-font-family-primary`;
+      }
+      return `cbds-font-family-${toKebab(prop.path.slice(1).join("-"))}`;
+    }
+    
+    if (prop.path[0] === "fontWeights") {
+      // Clean up font weight names (e.g., "inter-0" -> "0")
+      const cleanPath = prop.path.map(p => {
+        if (p.includes("inter-")) {
+          return p.replace("inter-", "");
+        }
+        return p;
+      });
+      // Map numeric indices to meaningful names
+      const weightMap = {
+        "0": "bold",
+        "1": "regular", 
+        "2": "semibold"
+      };
+      if (cleanPath[1] && weightMap[cleanPath[1]]) {
+        return `cbds-font-weight-${weightMap[cleanPath[1]]}`;
+      }
+      return `cbds-${toKebab(cleanPath.join("-"))}`;
+    }
+    
+    return `cbds-${toKebab(prop.path.join("-"))}`;
+  }
 });
 
 // Transform for spacing tokens (convert to rem)
@@ -85,11 +116,38 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: "fontSize/px",
   type: "value",
-  filter: token => token.path.includes("fontSize") || token.path.includes("font-size"),
+  filter: token => {
+    return token.path.some(part => 
+      part.includes("fontSize") || 
+      part.includes("font-size") || 
+      (token.path[0] === "font-size")
+    );
+  },
   transform: token => {
     const value = parseFloat(token.value);
     if (isNaN(value)) return token.value;
     return `${value}px`;
+  }
+});
+
+// Transform for font-weight tokens (convert string to numeric values)
+StyleDictionary.registerTransform({
+  name: "fontWeight/number",
+  type: "value",
+  filter: token => {
+    // Apply to fontWeights tokens and weight tokens
+    return token.type === "fontWeights" || 
+           token.path[0] === "fontWeights" ||
+           token.path.some(p => p.includes("weight"));
+  },
+  transform: token => {
+    const weightMap = {
+      "Regular": 400,
+      "Semi Bold": 600,
+      "SemiBold": 600,
+      "Bold": 700
+    };
+    return weightMap[token.value] || token.value;
   }
 });
 
@@ -180,35 +238,42 @@ function loadTokenStudioTokens() {
   try {
     // Load all token files
     const globalTokens = JSON.parse(fs.readFileSync(path.join(tokensDir, "global.json"), "utf8"));
-    const primitiveColors = JSON.parse(fs.readFileSync(path.join(tokensDir, "colour primitive/Mode 1.json"), "utf8"));
-    const primitiveNumbers = JSON.parse(fs.readFileSync(path.join(tokensDir, "number primitive/Mode 1.json"), "utf8"));
-    const lightSemanticColors = JSON.parse(fs.readFileSync(path.join(tokensDir, "colour semantic/Light.json"), "utf8"));
-    const darkSemanticColors = JSON.parse(fs.readFileSync(path.join(tokensDir, "colour semantic/Dark.json"), "utf8"));
+    const primitiveColors = JSON.parse(fs.readFileSync(path.join(tokensDir, "colour-primitive/mode-1.json"), "utf8"));
+    const primitiveNumbers = JSON.parse(fs.readFileSync(path.join(tokensDir, "number-primitive/mode-1.json"), "utf8"));
+    const primitiveText = JSON.parse(fs.readFileSync(path.join(tokensDir, "text-primitive/mode-1.json"), "utf8"));
+    const lightSemanticColors = JSON.parse(fs.readFileSync(path.join(tokensDir, "colour-semantic/light.json"), "utf8"));
+    const darkSemanticColors = JSON.parse(fs.readFileSync(path.join(tokensDir, "colour-semantic/dark.json"), "utf8"));
+    const textSemanticDefault = JSON.parse(fs.readFileSync(path.join(tokensDir, "text-semantic/default.json"), "utf8"));
     
     // Clean up invalid references
     const cleanedGlobalTokens = cleanTokenReferences(globalTokens);
     const cleanedPrimitiveColors = cleanTokenReferences(primitiveColors);
     const cleanedPrimitiveNumbers = cleanTokenReferences(primitiveNumbers);
+    const cleanedPrimitiveText = cleanTokenReferences(primitiveText);
     const cleanedLightSemanticColors = cleanTokenReferences(lightSemanticColors);
     const cleanedDarkSemanticColors = cleanTokenReferences(darkSemanticColors);
+    const cleanedTextSemanticDefault = cleanTokenReferences(textSemanticDefault);
     
     // Merge primitive tokens
     const primitiveTokens = {
       ...cleanedPrimitiveColors,
       ...cleanedPrimitiveNumbers,
+      ...cleanedPrimitiveText,
       ...cleanedGlobalTokens
     };
     
     // Create light theme tokens
     const lightTokens = {
       ...primitiveTokens,
-      ...cleanedLightSemanticColors
+      ...cleanedLightSemanticColors,
+      ...cleanedTextSemanticDefault
     };
     
     // Create dark theme tokens
     const darkTokens = {
       ...primitiveTokens,
-      ...cleanedDarkSemanticColors
+      ...cleanedDarkSemanticColors,
+      ...cleanedTextSemanticDefault
     };
     
     return { lightTokens, darkTokens };
@@ -223,6 +288,7 @@ function loadTokenStudioTokens() {
 const tokenTransformGroup = [
   "attribute/cti",
   "color/css",
+  "fontWeight/number",  // Convert font weights to numeric values
   "lineHeight/px",
   "fontSize/px",
   "iconSize/px",      // Apply unit transforms before name transform

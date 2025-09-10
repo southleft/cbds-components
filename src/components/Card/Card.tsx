@@ -3,7 +3,7 @@ import styles from "./Card.module.css";
 
 /**
  * Card component for content containers
- * Uses Tenet design tokens for consistent styling
+ * Uses CBDS design tokens for consistent styling
  */
 export const Card: React.FC<React.PropsWithChildren<{ title?: string }>> = ({ 
   title, 
