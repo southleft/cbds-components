@@ -7,7 +7,8 @@ const config: StorybookConfig = {
     "@storybook/addon-docs"
   ],
   framework: { name: "@storybook/react-vite", options: {} },
-  docs: { autodocs: true }
+  docs: { autodocs: true },
+  staticDirs: ['../public']
 };
 
 export default config;
