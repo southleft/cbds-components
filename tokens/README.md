@@ -105,7 +105,7 @@ const primaryBg: CBDSVar = '--cbds-bg-brand-default';
 The tokens are automatically built when you run:
 
 ```bash
-npm run tokens:build
+npm run tokens
 ```
 
 This command:
@@ -134,7 +134,7 @@ Examples:
 
 1. **Edit tokens** in Token Studio or directly in the JSON files
 2. **Export from Token Studio** to `tokens/json/` (if using Token Studio)
-3. **Run build** with `npm run tokens:build`
+3. **Run build** with `npm run tokens`
 4. **Use tokens** in components via CSS custom properties
 5. **Test themes** by switching the `data-theme` attribute
 
