@@ -9,10 +9,11 @@ A production-ready Storybook environment for demonstrating Figma MCP component g
    npm install
    ```
 
-2. Build design tokens (or leave running for auto-rebuild):
+2. Build design tokens:
    ```bash
-   npm run tokens:build
+   npm run tokens
    ```
+   (or leave `npm run tokens:watch` running for auto-rebuild)
 
 3. Start Storybook:
    ```bash
@@ -27,7 +28,7 @@ npm run dev
 ## Token Management
 
 Paste CBDS token exports into `tokens/json/*.json` keeping the same key structure. 
-Run `tokens:build` to regenerate CSS variables.
+Run `tokens` to regenerate CSS variables.
 
 ## Theme Switching
 
