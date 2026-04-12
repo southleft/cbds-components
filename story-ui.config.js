@@ -1,6 +1,7 @@
 module.exports = {
-  "generatedStoriesPath": "/Users/tjpitre/Sites/cbds-components/src/stories/generated",
-  "importPath": "relative", // Use relative imports instead of package name
+  "generatedStoriesPath": "./src/stories/generated",
+  "importPath": "../../components",
+  "importStyle": "individual",
   "componentPrefix": "",
   "layoutRules": {
     "multiColumnWrapper": "div",
@@ -12,10 +13,9 @@ module.exports = {
     "prohibitedElements": []
   },
   "storybookFramework": "@storybook/react-vite",
-  "componentsPath": "/Users/tjpitre/Sites/cbds-components/src/components",
+  "componentsPath": "./src/components",
   "storyPrefix": "Generated/",
   "defaultAuthor": "Story UI AI",
-  // Story UI version tracking (auto-generated)
-  _storyUIVersion: '4.16.11',
-  _lastUpdated: '2026-04-12T07:58:04.969Z',
-};;
+  "_storyUIVersion": "4.16.11",
+  "_lastUpdated": "2026-04-12T07:58:04.969Z"
+};
