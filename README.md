@@ -4,8 +4,7 @@ A Storybook-based component library powered by the CBDS (Component-Based Design 
 
 ## Prerequisites
 
-- **Node.js** 18+ (tested with v22)
-- **npm** 9+
+- [Node.js](https://nodejs.org/) version 18 or newer
 
 ## Getting Started
 
@@ -21,103 +20,41 @@ npm install
 npm run storybook
 ```
 
-Storybook will open at [http://localhost:6006](http://localhost:6006).
+Storybook will open at [http://localhost:6006](http://localhost:6006). You should see the CBDS logo and a sidebar with components, design tokens, and more.
 
-## What's Inside
+## What You'll Find
 
-| Sidebar Section | Description |
-|---|---|
-| **Components** | Hand-built React components (AvatarIndicator, Button) using CBDS tokens |
-| **Design System** | Token Showcase displaying all color palettes, spacing, typography, elevation, and sizing tokens |
-| **Story UI** | AI-powered story generator (optional setup below) |
-| **Generated** | Stories created by Story UI or other tools |
+- **Components** -- Hand-built React components (AvatarIndicator, Button) styled with CBDS design tokens
+- **Design System > Token Showcase** -- A visual reference of every token in the system: colors, spacing, typography, elevation, and sizing
+- **Theme Switching** -- Use the sun/moon icon in the toolbar to toggle between light and dark modes
 
-## Design Tokens
+## Adding Components
 
-Tokens are generated from JSON source files using [Style Dictionary](https://amzn.github.io/style-dictionary/) and output as CSS custom properties.
-
-```bash
-# Rebuild tokens after editing JSON source files
-npm run tokens
-```
-
-Source files live in `tokens/json/`. Output goes to `src/styles/tokens.css` and `src/styles/tokens.dark.css`.
-
-The token architecture mirrors the Figma variable collections:
-
-- **Colour Primitive** -- raw color scales (grey, blue, green, red, yellow, indigo) for light and dark
-- **Colour Semantic** -- contextual tokens (bg, text, icon, border) with Light and Dark modes
-- **Number Primitive** -- spacing, corner-radius, component-size, icon-size
-- **Text Primitive** -- font sizes, line heights, font weights
-- **Text Semantic** -- composed typography tokens (body, label, heading, display)
-
-## Theme Switching
-
-Use the theme toggle in the Storybook toolbar (sun/moon icon) to switch between light and dark modes.
-
-## Component Development
-
-Components live in `src/components/` and follow this structure:
+New components go in `src/components/`. Each component follows this pattern:
 
 ```
-src/components/Button/
-  Button.tsx              # Component implementation
-  Button.stories.tsx      # Storybook stories
-  Button.module.css       # Scoped styles using CBDS tokens
-  index.ts                # Barrel export
+src/components/MyComponent/
+  MyComponent.tsx            # Component code
+  MyComponent.stories.tsx    # Storybook stories
+  MyComponent.module.css     # Styles using CBDS tokens
+  index.ts                   # Export
 ```
 
-All components use CSS Modules with CBDS design token CSS custom properties (e.g. `var(--cbds-bg-brand-default)`).
+Use CBDS tokens in your CSS via custom properties, for example: `color: var(--cbds-text-primary)` or `padding: var(--cbds-spacing-200)`.
 
 ## Story UI (Optional)
 
-Story UI is an AI-powered story generator that lets you describe a component in natural language and generates a working Storybook story. It requires a Claude API key.
-
-### Setup
+Story UI is an AI-powered tool that generates Storybook stories from natural-language descriptions. If you'd like to try it:
 
 ```bash
-# 1. Create a .env file with your API key
-cp .env.example .env
-# Then edit .env and add your CLAUDE_API_KEY
-
-# 2. Initialize Story UI (downloads panel files into your project)
+# 1. Initialize Story UI (creates config, .env file, and panel files)
+#    It will ask for your Claude API key during setup.
 npx story-ui init
 
-# 3. Start Storybook + Story UI together
+# 2. Start Storybook + Story UI together
 npm run storybook-with-ui
 ```
 
-This starts Storybook on port 6006 and the Story UI MCP server on port 4001.
+Once running, navigate to **Story UI > Story Generator** in the sidebar. Describe a component and it will generate a working story for you.
 
-### Using Story UI
-
-1. Navigate to **Story UI > Story Generator** in the Storybook sidebar
-2. Type a component description (e.g. "Create a card component with an image, title, and description")
-3. Story UI generates a `.stories.tsx` file in `src/stories/generated/`
-4. The new story appears in the **Generated** section of the sidebar
-
-### Adding New Components
-
-When you add new components to `src/components/`, Story UI automatically discovers them within about 60 seconds (no restart needed). The AI can then reference your components when generating stories.
-
-If Storybook doesn't pick up a new generated story file, a quick page refresh (Cmd+R) will load it.
-
-## Available Scripts
-
-| Command | Description |
-|---|---|
-| `npm run storybook` | Start Storybook dev server on port 6006 |
-| `npm run dev` | Start Vite dev server (builds tokens first) |
-| `npm run build` | Build tokens + production bundle |
-| `npm run tokens` | Rebuild design tokens from JSON sources |
-| `npm run lint` | Run ESLint |
-| `npm run build-storybook` | Build static Storybook for deployment |
-| `npm run storybook-with-ui` | Start Storybook + Story UI together |
-
-## Tech Stack
-
-- **React 19** with TypeScript
-- **Storybook 10** with React-Vite integration
-- **Vite 7** as build tool
-- **Style Dictionary** for token generation
-- **Story UI** for AI-powered story generation (optional)
+When you add new components to `src/components/`, Story UI picks them up automatically -- no restart needed. If a newly generated story doesn't appear in the sidebar, just refresh the page.
