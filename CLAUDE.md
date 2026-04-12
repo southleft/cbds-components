@@ -62,8 +62,9 @@ npm test
 
 ## Key Dependencies
 
-- **React 19.1.1** with React DOM
-- **Vite 7.1.2** with React plugin
-- **Storybook 9.1.5** with React-Vite integration
-- **TypeScript 5.8.3**
-- **Vitest 3.2.4** with Playwright browser testing
+- **React 19** with React DOM
+- **Vite 7** with React plugin
+- **Storybook 10** with React-Vite integration
+- **TypeScript 5.9**
+- **Vitest 3.2** with Playwright browser testing
+- **Story UI 4.16** for AI-powered story generation (optional)

@@ -68,34 +68,39 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
     }
   ];
 
-  // Spacing values
+  // Spacing values — matches Figma number primitive collection
   const spacingValues = [
-    { name: '025', value: '0.125rem' },
-    { name: '050', value: '0.25rem' },
-    { name: '100', value: '0.5rem' },
-    { name: '150', value: '0.75rem' },
-    { name: '200', value: '1rem' },
-    { name: '300', value: '1.5rem' },
-    { name: '400', value: '2rem' },
-    { name: '500', value: '2.5rem' },
-    { name: '600', value: '3rem' },
-    { name: '800', value: '4rem' },
-    { name: '1000', value: '5rem' }
+    { name: '025', value: '2px' },
+    { name: '050', value: '4px' },
+    { name: '100', value: '8px' },
+    { name: '150', value: '12px' },
+    { name: '200', value: '16px' },
+    { name: '300', value: '24px' },
+    { name: '400', value: '32px' },
+    { name: '500', value: '40px' },
+    { name: '600', value: '48px' },
+    { name: '800', value: '64px' },
+    { name: '1000', value: '80px' },
+    { name: '1200', value: '96px' },
+    { name: '1600', value: '128px' },
+    { name: '2000', value: '160px' }
   ];
 
-  // Typography examples
+  // Typography examples — uses actual CBDS semantic tokens from Figma
   const typographyExamples = [
-    { name: 'Display Large', size: '4.5rem', weight: 'Bold', usage: 'Hero headings' },
-    { name: 'Display Medium', size: '3.75rem', weight: 'Bold', usage: 'Page titles' },
-    { name: 'Display Small', size: '3rem', weight: 'Bold', usage: 'Section titles' },
-    { name: 'Heading 1', size: '2.25rem', weight: 'Bold', usage: 'Main headings' },
-    { name: 'Heading 2', size: '2rem', weight: 'Semi Bold', usage: 'Sub headings' },
-    { name: 'Heading 3', size: '1.75rem', weight: 'Semi Bold', usage: 'Sub sections' },
-    { name: 'Heading 4', size: '1.5rem', weight: 'Semi Bold', usage: 'Component titles' },
-    { name: 'Body Large', size: '1.125rem', weight: 'Regular', usage: 'Large body text' },
-    { name: 'Body Medium', size: '1rem', weight: 'Regular', usage: 'Default body text' },
-    { name: 'Body Small', size: '0.875rem', weight: 'Regular', usage: 'Secondary text' },
-    { name: 'Caption', size: '0.75rem', weight: 'Regular', usage: 'Captions, labels' }
+    { name: 'Display XLarge', cssVar: '--cbds-display-font-xlarge', lineHeight: '--cbds-display-line-height-xlarge', weight: 'Bold', usage: 'Hero headings' },
+    { name: 'Display Large', cssVar: '--cbds-display-font-large', lineHeight: '--cbds-display-line-height-large', weight: 'Bold', usage: 'Page titles' },
+    { name: 'Display Medium', cssVar: '--cbds-display-font-medium', lineHeight: '--cbds-display-line-height-medium', weight: 'Bold', usage: 'Major sections' },
+    { name: 'Display Small', cssVar: '--cbds-display-font-small', lineHeight: '--cbds-display-line-height-small', weight: 'Bold', usage: 'Section titles' },
+    { name: 'Heading XLarge', cssVar: '--cbds-heading-font-xlarge', lineHeight: '--cbds-heading-line-height-xlarge', weight: 'Semi Bold', usage: 'Main headings' },
+    { name: 'Heading Large', cssVar: '--cbds-heading-font-large', lineHeight: '--cbds-heading-line-height-large', weight: 'Semi Bold', usage: 'Sub headings' },
+    { name: 'Heading Medium', cssVar: '--cbds-heading-font-medium', lineHeight: '--cbds-heading-line-height-medium', weight: 'Semi Bold', usage: 'Sub sections' },
+    { name: 'Heading Small', cssVar: '--cbds-heading-font-small', lineHeight: '--cbds-heading-line-height-small', weight: 'Semi Bold', usage: 'Component titles' },
+    { name: 'Body XLarge', cssVar: '--cbds-body-font-xlarge', lineHeight: '--cbds-body-line-height-xlarge', weight: 'Regular', usage: 'Large body text' },
+    { name: 'Body Large', cssVar: '--cbds-body-font-large', lineHeight: '--cbds-body-line-height-large', weight: 'Regular', usage: 'Default body text' },
+    { name: 'Body Medium', cssVar: '--cbds-body-font-medium', lineHeight: '--cbds-body-line-height-medium', weight: 'Regular', usage: 'Secondary text' },
+    { name: 'Body Small', cssVar: '--cbds-body-font-small', lineHeight: '--cbds-body-line-height-small', weight: 'Regular', usage: 'Small text' },
+    { name: 'Body XSmall', cssVar: '--cbds-body-font-xsmall', lineHeight: '--cbds-body-line-height-small', weight: 'Regular', usage: 'Captions, labels' },
   ];
 
   // Semantic color examples
@@ -204,20 +209,21 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
           {typographyExamples.map((typo, index) => (
             <div key={index} className={styles.typographyExample}>
               <div className={styles.typographyLabel}>
-                {typo.name} • {typo.size} • {typo.weight}
+                {typo.name} • {typo.cssVar} • {typo.weight}
               </div>
-              <div 
-                style={{ 
-                  fontSize: typo.size,
-                  fontWeight: typo.weight === 'Bold' ? 700 : typo.weight === 'Semi Bold' ? 600 : 400,
+              <div
+                style={{
+                  fontSize: `var(${typo.cssVar})`,
+                  lineHeight: `calc(var(${typo.lineHeight}) * 1px)`,
+                  fontWeight: typo.weight === 'Bold' ? 'var(--cbds-font-weight-bold)' : typo.weight === 'Semi Bold' ? 'var(--cbds-font-weight-semibold)' : 'var(--cbds-font-weight-regular)',
                   fontFamily: 'var(--cbds-font-family-primary)',
                   color: 'var(--cbds-text-primary)'
-                }}
+                } as React.CSSProperties}
               >
                 The quick brown fox jumps over the lazy dog
               </div>
-              <div style={{ 
-                fontSize: '0.875rem', 
+              <div style={{
+                fontSize: '0.875rem',
                 color: 'var(--cbds-text-secondary)',
                 marginTop: 'var(--cbds-spacing-050)'
               }}>
@@ -290,8 +296,16 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
               Corner Radius
             </h3>
             <div style={{ display: 'grid', gap: 'var(--cbds-spacing-150)' }}>
-              {['050', '100', '150', '200', '250', '300'].map((radius) => (
-                <div key={radius} style={{
+              {[
+                { token: '050', px: '4px' },
+                { token: '100', px: '8px' },
+                { token: '150', px: '12px' },
+                { token: '200', px: '16px' },
+                { token: '250', px: '20px' },
+                { token: '300', px: '24px' },
+                { token: '1200', px: '96px' },
+              ].map(({ token, px }) => (
+                <div key={token} style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: 'var(--cbds-spacing-200)'
@@ -301,15 +315,11 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
                       width: '60px',
                       height: '60px',
                       backgroundColor: 'var(--cbds-bg-brand-default)',
-                      borderRadius: `var(--cbds-corner-radius-${radius})`
+                      borderRadius: `var(--cbds-corner-radius-${token})`
                     }}
                   />
                   <span style={{ color: 'var(--cbds-text-secondary)' }}>
-                    {radius} - {radius === '050' ? '0.25rem' : 
-                              radius === '100' ? '0.5rem' :
-                              radius === '150' ? '0.75rem' :
-                              radius === '200' ? '1rem' :
-                              radius === '250' ? '1.25rem' : '1.5rem'}
+                    {token} — {px}
                   </span>
                 </div>
               ))}
@@ -322,11 +332,11 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
             </h3>
             <div style={{ display: 'grid', gap: 'var(--cbds-spacing-150)' }}>
               {[
-                { name: 'xsmall', value: '1rem' },
-                { name: 'small', value: '1.5rem' },
-                { name: 'medium', value: '2rem' },
-                { name: 'large', value: '2.5rem' },
-                { name: 'xlarge', value: '3rem' }
+                { name: 'xsmall', value: '16px' },
+                { name: 'small', value: '24px' },
+                { name: 'medium', value: '32px' },
+                { name: 'large', value: '40px' },
+                { name: 'xlarge', value: '48px' }
               ].map((size) => (
                 <div key={size.name} style={{
                   display: 'flex',

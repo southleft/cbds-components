@@ -34,5 +34,32 @@
     "createdAt": "2025-09-10T15:22:01.135Z",
     "updatedAt": "2025-09-10T15:22:01.135Z",
     "prompt": "Please generate a page full of avatar indicators. "
+  },
+  {
+    "title": "Button with Primary Secondary Disabled States",
+    "fileName": "button-with-primary-secondary-disabled-states-a211fa51.stories.tsx",
+    "storyId": "story-a211fa51",
+    "hash": "a211fa51",
+    "createdAt": "2026-04-12T07:53:12.916Z",
+    "updatedAt": "2026-04-12T07:53:12.916Z",
+    "prompt": "Create a simple Button component story with primary, secondary, and disabled variants"
+  },
+  {
+    "title": "Button Group with Primary and Secondary Actions",
+    "fileName": "button-group-with-primary-and-secondary-actions-3a8063e4.stories.tsx",
+    "storyId": "story-3a8063e4",
+    "hash": "3a8063e4",
+    "createdAt": "2026-04-12T08:00:53.016Z",
+    "updatedAt": "2026-04-12T08:00:53.016Z",
+    "prompt": "Create a button group with primary and secondary actions"
+  },
+  {
+    "title": "Navigation Bar with Logo and Menu",
+    "fileName": "navigation-bar-with-logo-and-menu-bcef28e8.stories.tsx",
+    "storyId": "story-bcef28e8",
+    "hash": "bcef28e8",
+    "createdAt": "2026-04-12T08:36:14.531Z",
+    "updatedAt": "2026-04-12T08:36:14.531Z",
+    "prompt": "Create a navigation bar with logo and menu links"
   }
 ]

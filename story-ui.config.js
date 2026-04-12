@@ -14,5 +14,8 @@ module.exports = {
   "storybookFramework": "@storybook/react-vite",
   "componentsPath": "/Users/tjpitre/Sites/cbds-components/src/components",
   "storyPrefix": "Generated/",
-  "defaultAuthor": "Story UI AI"
-};
+  "defaultAuthor": "Story UI AI",
+  // Story UI version tracking (auto-generated)
+  _storyUIVersion: '4.16.11',
+  _lastUpdated: '2026-04-12T07:58:04.969Z',
+};;
