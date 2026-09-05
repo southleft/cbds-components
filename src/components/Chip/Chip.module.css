@@ -43,8 +43,9 @@
 }
 
 /**
- * Figma specs the large chip at component-size/medium = 36px, but the token
- * scale in tokens.css defines that step as 32px. Honoring the token; see README.
+ * Large chip is component-size/medium = 36px, matching Figma. This token read
+ * 32px until the DTCG pipeline picked up the current Figma value; the drift
+ * this comment used to describe is resolved.
  */
 .cbds-c-chip--large {
   height: var(--cbds-component-size-medium);
