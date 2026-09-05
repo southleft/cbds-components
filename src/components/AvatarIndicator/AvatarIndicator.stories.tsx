@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { AvatarIndicator } from './AvatarIndicator';
 
 const meta: Meta<typeof AvatarIndicator> = {
-  title: 'Components/AvatarIndicator',
+  title: 'Primitives/Avatar Indicator',
   component: AvatarIndicator,
   parameters: {
     layout: 'centered',

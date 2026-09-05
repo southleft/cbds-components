@@ -1,4 +1,4 @@
-import type { IconProps as PhosphorIconProps, Icon as PhosphorIcon } from '@phosphor-icons/react';
+import type { Icon as PhosphorIcon } from '@phosphor-icons/react';
 import styles from './Icon.module.css';
 import { clsx } from 'clsx';
 

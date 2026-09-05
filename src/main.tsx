@@ -1,26 +1,27 @@
 import { createRoot } from "react-dom/client";
+import { House } from "@phosphor-icons/react";
 import "./styles/tokens.css";
 import "./styles/tokens.dark.css";
+import "./styles/tokens.brutalist.css";
 import "./styles/reset.css";
 import "./styles/theme.css";
-import { Card } from "./components/Card/Card";
-import { Button } from "./components/Button/Button";
-import { TextField } from "./components/TextField/TextField";
+import { Chip, Icon, ProgressBar } from "./components";
+
+/* eslint-disable react-refresh/only-export-components -- entry point, not a refresh boundary */
 
 /**
- * Demo app showcasing CBDS components
- * This runs outside of Storybook for standalone testing
+ * Standalone smoke test for the component library, outside Storybook.
+ * Run `npm run storybook` for the real thing.
  */
 function App() {
   return (
-    <div style={{ padding: "24px" }}>
-      <Card title="Demo Form">
-        <TextField label="Name" placeholder="Enter your name" />
-        <div style={{ display: "flex", gap: "12px", alignItems: "center", marginTop: "16px" }}>
-          <Button variant="primary">Submit</Button>
-          <Button variant="ghost">Cancel</Button>
-        </div>
-      </Card>
+    <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 16, maxWidth: 480 }}>
+      <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <Icon icon={House} />
+        <Chip label="Primitives" />
+        <Chip label="Atomics" type="neutral" variant="outline" />
+      </div>
+      <ProgressBar value={60} label="Progress" showValue />
     </div>
   );
 }

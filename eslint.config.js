@@ -9,7 +9,13 @@ import tseslint from 'typescript-eslint'
 import { globalIgnores } from 'eslint/config'
 
 export default tseslint.config([
-  globalIgnores(['dist']),
+  globalIgnores([
+    'dist',
+    'storybook-static',   // build output
+    'src/stories/StoryUI', // vendored Story UI panel source
+    'src/stories/StoryUIV2',
+    'src/stories/generated', // AI-generated stories, authored during the workshop
+  ]),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [

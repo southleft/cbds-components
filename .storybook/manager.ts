@@ -1,3 +1,4 @@
+import '../src/stories/StoryUI/manager';
 import { addons } from 'storybook/internal/manager-api';
 import { create } from 'storybook/internal/theming';
 

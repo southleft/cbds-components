@@ -34,3 +34,13 @@ tokens/*.zip
 src/stories/generated
 src/stories/StoryUI/
 .story-ui-history/
+
+# Local tool / assistant state (machine-specific, not part of the library)
+.claude/
+.serena/
+.story-ui/
+src/stories/.story-ui/
+
+# Story UI panel source is scaffolded by `npx story-ui init`, not checked in
+src/stories/StoryUIV2/
+

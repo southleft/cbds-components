@@ -23,5 +23,9 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  /* Story UI ships its panel source into src/. It is vendor tooling for the
+     workshop, not part of the component library, and does not compile under
+     our strict settings — typecheck what we author. */
+  "exclude": ["src/stories/StoryUI", "src/stories/StoryUIV2", "src/stories/generated"]
 }

@@ -1,5 +1,6 @@
 /**
- * Do not edit directly, this file was auto-generated.
+ * CBDS design tokens — generated from Figma. Do not edit directly.
+ * Dark theme overrides.
  */
 
 :root[data-theme='dark'] {
@@ -12,7 +13,7 @@
   --cbds-bg-neutral-weak-pressed: var(--cbds-dark-grey-600);
   --cbds-bg-neutral-weakest-hover: var(--cbds-dark-grey-400);
   --cbds-bg-neutral-pressed: var(--cbds-dark-grey-900);
-  --cbds-bg-brand-default: var(--cbds-dark-blue-700);
+  --cbds-bg-brand-default: #6eb4ff;
   --cbds-bg-brand-hover: var(--cbds-dark-blue-800);
   --cbds-bg-brand-pressed: var(--cbds-dark-blue-900);
   --cbds-bg-brand-weak: var(--cbds-dark-blue-400);
@@ -184,6 +185,8 @@
   --cbds-border-info-default: var(--cbds-dark-blue-700);
   --cbds-border-info-hover: var(--cbds-dark-blue-800);
   --cbds-border-info-pressed: var(--cbds-dark-blue-900);
+  --cbds-border-control-default: var(--cbds-dark-grey-600);
+  --cbds-border-control-hover: var(--cbds-dark-grey-700);
   --cbds-utility-bg-blue: var(--cbds-dark-blue-700);
   --cbds-utility-bg-green: var(--cbds-dark-green-700);
   --cbds-utility-bg-yellow: var(--cbds-dark-yellow-700);

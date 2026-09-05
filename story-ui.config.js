@@ -16,6 +16,6 @@ module.exports = {
   "componentsPath": "./src/components",
   "storyPrefix": "Generated/",
   "defaultAuthor": "Story UI AI",
-  "_storyUIVersion": "4.16.11",
-  "_lastUpdated": "2026-04-12T07:58:04.969Z"
+  "_storyUIVersion": "5.15.0",
+  "_lastUpdated": "2026-09-04T00:00:00.000Z"
 };

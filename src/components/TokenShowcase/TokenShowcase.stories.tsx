@@ -3,7 +3,7 @@ import { TokenShowcase } from "./TokenShowcase";
 import { TokenTest } from "./TokenTest";
 
 const meta: Meta<typeof TokenShowcase> = {
-  title: "Design System/Token Showcase",
+  title: "Foundations/Tokens",
   component: TokenShowcase,
   parameters: {
     layout: "fullscreen",

@@ -1,0 +1,113 @@
+/* ------------------------------------*\
+  #PROGRESS BAR
+  Matches Figma Progress bar component from CBDS UI Kit
+\*------------------------------------ */
+
+.cbds-c-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cbds-spacing-025); /* 2px between header, track, and supporting text */
+  width: 100%;
+  font-family: var(--cbds-font-family-primary, Inter), system-ui, -apple-system, sans-serif;
+}
+
+/* ------------------------------------*\
+  #PROGRESS BAR — HEADER (label + value)
+\*------------------------------------ */
+
+.cbds-c-progress__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cbds-spacing-025);
+  min-height: 20px;
+}
+
+.cbds-c-progress__label {
+  flex: 1 1 auto;
+  font-size: var(--cbds-font-size-19); /* 14px */
+  line-height: var(--cbds-line-heights-19, 20px);
+  font-weight: var(--cbds-font-weight-regular);
+  color: var(--cbds-text-primary);
+}
+
+.cbds-c-progress__value {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  font-size: var(--cbds-font-size-21); /* 12px */
+  line-height: var(--cbds-line-heights-21, 16px);
+  font-weight: var(--cbds-font-weight-regular);
+  color: var(--cbds-text-secondary);
+}
+
+/* ------------------------------------*\
+  #PROGRESS BAR — TRACK + BAR
+\*------------------------------------ */
+
+.cbds-c-progress__track {
+  position: relative;
+  width: 100%;
+  background-color: var(--cbds-bg-neutral-weakest);
+  border-radius: 9999px; /* pill — bar is always shorter than radius */
+  overflow: hidden;
+}
+
+.cbds-c-progress__bar {
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--cbds-bg-brand-default);
+  transition: width 200ms ease-out;
+}
+
+/* ------------------------------------*\
+  #PROGRESS BAR — SUPPORTING TEXT
+\*------------------------------------ */
+
+.cbds-c-progress__supporting {
+  font-size: var(--cbds-font-size-21); /* 12px */
+  line-height: var(--cbds-line-heights-21, 16px);
+  font-weight: var(--cbds-font-weight-regular);
+  color: var(--cbds-text-secondary);
+}
+
+/* ------------------------------------*\
+  #PROGRESS BAR — SIZES
+\*------------------------------------ */
+
+.cbds-c-progress--large .cbds-c-progress__track {
+  height: 16px;
+}
+
+.cbds-c-progress--medium .cbds-c-progress__track {
+  height: 8px;
+}
+
+.cbds-c-progress--small .cbds-c-progress__track {
+  height: 4px;
+}
+
+/* ------------------------------------*\
+  #PROGRESS BAR — TYPES
+\*------------------------------------ */
+
+.cbds-c-progress--brand .cbds-c-progress__bar {
+  background-color: var(--cbds-bg-brand-default);
+}
+
+.cbds-c-progress--success .cbds-c-progress__bar {
+  background-color: var(--cbds-bg-positive-default);
+}
+
+.cbds-c-progress--success .cbds-c-progress__value {
+  color: var(--cbds-text-positive-default);
+}
+
+.cbds-c-progress--error .cbds-c-progress__bar {
+  background-color: var(--cbds-bg-danger-default);
+}
+
+.cbds-c-progress--error .cbds-c-progress__value {
+  color: var(--cbds-text-danger-default);
+}

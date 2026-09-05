@@ -1,0 +1,252 @@
+/* ------------------------------------*\
+  #CHIP
+\*------------------------------------ */
+
+/**
+ * Chip base
+ * Matches Figma Chip component from CBDS UI Kit
+ *
+ * The outline stroke is drawn with an inset box-shadow rather than a border so
+ * that fill, outline, selected and disabled chips share identical geometry —
+ * state changes never shift layout.
+ */
+.cbds-c-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cbds-spacing-100); /* spacing/100 = 8px */
+  padding: 0 var(--cbds-spacing-150); /* spacing/150 = 12px */
+  border: none;
+  border-radius: var(--cbds-corner-radius-050); /* corner-radius/050 = 4px */
+  box-sizing: border-box;
+  max-width: 100%;
+  font-family: var(--cbds-font-family-primary, Inter), system-ui, -apple-system, sans-serif;
+  font-size: var(--cbds-font-size-19); /* label/font-medium = 14px */
+  font-weight: var(--cbds-font-weight-semibold); /* 600 */
+  line-height: var(--cbds-line-heights-19); /* label/line-height-medium = 16px */
+  transition: background-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
+}
+
+/* Reset when the root itself is a <button> */
+.cbds-c-chip:is(button) {
+  appearance: none;
+  cursor: pointer;
+  text-align: inherit;
+}
+
+/* ------------------------------------*\
+  #SIZE
+\*------------------------------------ */
+
+.cbds-c-chip--small {
+  height: var(--cbds-component-size-small); /* component-size/small = 24px */
+}
+
+/**
+ * Figma specs the large chip at component-size/medium = 36px, but the token
+ * scale in tokens.css defines that step as 32px. Honoring the token; see README.
+ */
+.cbds-c-chip--large {
+  height: var(--cbds-component-size-medium);
+}
+
+/* ------------------------------------*\
+  #SHAPE
+\*------------------------------------ */
+
+.cbds-c-chip--round {
+  border-radius: var(--cbds-corner-radius-1200); /* corner-radius/1200 = 96px */
+}
+
+/* ------------------------------------*\
+  #TYPE × STYLE — DEFAULT STATE
+\*------------------------------------ */
+
+/**
+ * Brand / Fill
+ */
+.cbds-c-chip--brand.cbds-c-chip--fill {
+  background-color: var(--cbds-bg-brand-weak);
+  color: var(--cbds-text-primary);
+}
+
+/**
+ * Neutral / Fill
+ */
+.cbds-c-chip--neutral.cbds-c-chip--fill {
+  background-color: var(--cbds-bg-neutral-weak);
+  color: var(--cbds-text-primary);
+}
+
+/**
+ * Brand / Outline
+ *
+ * Figma binds the outline stroke to the bg/* tokens rather than border/*.
+ * Matching that binding matters for neutral, where border-neutral-default
+ * (#a2aebf) is a visibly lighter grey than bg-neutral-default (#3a475b).
+ */
+.cbds-c-chip--brand.cbds-c-chip--outline {
+  background-color: var(--cbds-bg-surface-primary);
+  color: var(--cbds-text-brand-default);
+  box-shadow: inset 0 0 0 var(--cbds-spacing-025) var(--cbds-bg-brand-default); /* spacing/025 = 2px */
+}
+
+/**
+ * Neutral / Outline
+ */
+.cbds-c-chip--neutral.cbds-c-chip--outline {
+  background-color: var(--cbds-bg-surface-primary);
+  color: var(--cbds-text-neutral-default);
+  box-shadow: inset 0 0 0 var(--cbds-spacing-025) var(--cbds-bg-neutral-default);
+}
+
+/* ------------------------------------*\
+  #HOVER STATE
+  Only interactive chips respond to hover.
+\*------------------------------------ */
+
+.cbds-c-chip--interactive.cbds-c-chip--brand.cbds-c-chip--fill:hover:not(.cbds-c-chip--selected, .cbds-c-chip--disabled) {
+  background-color: var(--cbds-bg-brand-weak-hover);
+}
+
+.cbds-c-chip--interactive.cbds-c-chip--neutral.cbds-c-chip--fill:hover:not(.cbds-c-chip--selected, .cbds-c-chip--disabled) {
+  background-color: var(--cbds-bg-neutral-weak-hover);
+}
+
+.cbds-c-chip--interactive.cbds-c-chip--brand.cbds-c-chip--outline:hover:not(.cbds-c-chip--selected, .cbds-c-chip--disabled) {
+  background-color: var(--cbds-bg-surface-primary-hover);
+  color: var(--cbds-text-brand-hover);
+}
+
+.cbds-c-chip--interactive.cbds-c-chip--neutral.cbds-c-chip--outline:hover:not(.cbds-c-chip--selected, .cbds-c-chip--disabled) {
+  background-color: var(--cbds-bg-surface-primary-hover);
+  color: var(--cbds-text-neutral-hover);
+}
+
+/* ------------------------------------*\
+  #SELECTED STATE
+  Both fill and outline collapse to a solid swatch with inverse text.
+\*------------------------------------ */
+
+.cbds-c-chip--selected.cbds-c-chip--brand {
+  background-color: var(--cbds-bg-brand-default);
+  color: var(--cbds-text-inverse-primary);
+  box-shadow: inset 0 0 0 var(--cbds-spacing-025) var(--cbds-bg-brand-default);
+}
+
+.cbds-c-chip--selected.cbds-c-chip--neutral {
+  background-color: var(--cbds-bg-neutral-default);
+  color: var(--cbds-text-inverse-primary);
+  box-shadow: inset 0 0 0 var(--cbds-spacing-025) var(--cbds-bg-neutral-default);
+}
+
+/* ------------------------------------*\
+  #DISABLED STATE
+  Overrides every type × style × selected combination. The `.cbds-c-chip`
+  prefix is load-bearing: it lifts specificity to match the two-class
+  `type × style` rules above, which this block must beat on source order.
+\*------------------------------------ */
+
+.cbds-c-chip.cbds-c-chip--disabled {
+  background-color: var(--cbds-bg-disabled);
+  color: var(--cbds-text-disabled);
+  box-shadow: inset 0 0 0 var(--cbds-spacing-025) var(--cbds-bg-disabled);
+  pointer-events: none;
+}
+
+.cbds-c-chip.cbds-c-chip--disabled.cbds-c-chip--fill {
+  box-shadow: none;
+}
+
+/* ------------------------------------*\
+  #ELEMENTS
+\*------------------------------------ */
+
+/**
+ * Leading icon (16px at both chip sizes, per Figma)
+ */
+.cbds-c-chip__icon {
+  display: flex;
+  flex-shrink: 0;
+}
+
+/**
+ * Leading avatar — 16px on small chips, 24px on large
+ */
+.cbds-c-chip__avatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+
+.cbds-c-chip--large .cbds-c-chip__avatar {
+  width: 24px;
+  height: 24px;
+}
+
+.cbds-c-chip__avatar > * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/**
+ * Label text
+ */
+.cbds-c-chip__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**
+ * Inner action button — used when the chip is both clickable and dismissible,
+ * where a nested <button> inside a <button> would be invalid.
+ */
+.cbds-c-chip__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cbds-spacing-100);
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  border-radius: inherit;
+}
+
+/**
+ * Trailing dismiss button
+ */
+.cbds-c-chip__dismiss {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  border-radius: var(--cbds-corner-radius-050);
+}
+
+/* ------------------------------------*\
+  #FOCUS
+\*------------------------------------ */
+
+.cbds-c-chip:is(button):focus-visible,
+.cbds-c-chip__action:focus-visible,
+.cbds-c-chip__dismiss:focus-visible {
+  outline: 2px solid var(--cbds-border-focus);
+  outline-offset: 2px;
+}
