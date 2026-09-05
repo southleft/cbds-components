@@ -10,8 +10,8 @@ tokens/
 │   ├── global.json          # Global tokens (typography, elevation, etc.)
 │   ├── $themes.json         # Theme configuration
 │   ├── $metadata.json       # Token metadata
-│   ├── colour primitive/    # Primitive color tokens
-│   ├── colour semantic/     # Semantic color tokens (Light/Dark)
+│   ├── color primitive/    # Primitive color tokens
+│   ├── color semantic/     # Semantic color tokens (Light/Dark)
 │   ├── number primitive/    # Primitive number tokens (spacing, sizing)
 │   └── text primitive/      # Text-related tokens
 ├── build.mjs               # Style Dictionary build script
@@ -33,7 +33,7 @@ The build process generates the following files in `src/styles/`:
 
 #### Primitive Colors
 - Light and dark color palettes for each hue
-- Available hues: grey, blue, green, red, yellow, indigo
+- Available hues: gray, blue, green, red, yellow, indigo
 - Each hue has 10-11 shades (100-1000)
 
 #### Semantic Colors

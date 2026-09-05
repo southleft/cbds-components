@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 
 const DURATIONS = [
   { token: "--cbds-duration-instant", name: "duration/instant", use: "Near-instant state change. The medium Accordion 'snap'." },
-  { token: "--cbds-duration-fast", name: "duration/fast", use: "Hover, focus, and small colour or opacity changes." },
+  { token: "--cbds-duration-fast", name: "duration/fast", use: "Hover, focus, and small color or opacity changes." },
   { token: "--cbds-duration-base", name: "duration/base", use: "The default for disclosure and most component transitions." },
   { token: "--cbds-duration-slow", name: "duration/slow", use: "Deliberate motion on large surfaces. Use sparingly." },
 ];
@@ -67,7 +67,7 @@ function MotionSpecimens() {
 
   return (
     <div style={shell}>
-      {/* The contract every motion token carries: honour the user's preference. */}
+      {/* The contract every motion token carries: honor the user's preference. */}
       <style>{`@media (prefers-reduced-motion: reduce) {
         .cbds-motion-dot { transition-duration: 1ms !important; }
       }`}</style>

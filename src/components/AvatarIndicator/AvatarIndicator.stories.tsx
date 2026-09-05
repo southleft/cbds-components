@@ -11,10 +11,10 @@ const meta: Meta<typeof AvatarIndicator> = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['green', 'grey', 'red'],
+      options: ['green', 'gray', 'red'],
       description: 'The color type of the indicator',
       table: {
-        defaultValue: { summary: 'grey' },
+        defaultValue: { summary: 'gray' },
       },
     },
     size: {
@@ -41,9 +41,9 @@ export const Green: Story = {
   },
 };
 
-export const Grey: Story = {
+export const Gray: Story = {
   args: {
-    type: 'grey',
+    type: 'gray',
   },
 };
 
@@ -89,7 +89,7 @@ export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       {/* All sizes for each type */}
-      {(['green', 'grey', 'red'] as const).map((type) => (
+      {(['green', 'gray', 'red'] as const).map((type) => (
         <div key={type} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <span style={{ width: '60px', fontSize: '14px', color: '#666' }}>{type}:</span>
           {(['xsmall', 'small', 'medium', 'large', 'xlarge'] as const).map((size) => (

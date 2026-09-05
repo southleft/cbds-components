@@ -7,7 +7,7 @@ A comprehensive demonstration component that showcases all CBDS design tokens an
 The `TokenShowcase` component provides a visual reference for the entire CBDS design system, displaying:
 
 - **Semantic Colors**: Brand, success, error, warning, neutral, accent, and info colors
-- **Color Palettes**: Full primitive color scales (grey, blue, green, red, yellow, indigo)
+- **Color Palettes**: Full primitive color scales (gray, blue, green, red, yellow, indigo)
 - **Spacing Scale**: Complete spacing system from 0.125rem to 10rem
 - **Typography**: Font sizes, weights, and usage guidelines
 - **Elevation**: Box shadow styles for different UI layers

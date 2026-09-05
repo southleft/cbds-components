@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 import styles from "./AvatarIndicator.module.css";
 
 // AvatarIndicator component variants matching Figma design
-type Type = "green" | "grey" | "red";
+type Type = "green" | "gray" | "red";
 type Size = "xsmall" | "small" | "medium" | "large" | "xlarge";
 
 export type AvatarIndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -17,7 +17,7 @@ export type AvatarIndicatorProps = React.HTMLAttributes<HTMLDivElement> & {
  * Used to show status or presence indicators on avatars
  */
 export const AvatarIndicator: React.FC<AvatarIndicatorProps> = ({
-  type = "grey",
+  type = "gray",
   size = "small",
   className,
   ...props

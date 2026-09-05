@@ -15,7 +15,7 @@ import { AvatarIndicator } from './components/AvatarIndicator';
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| type | `'green' \| 'grey' \| 'red'` | `'grey'` | The color type of the indicator |
+| type | `'green' \| 'gray' \| 'red'` | `'gray'` | The color type of the indicator |
 | size | `'xsmall' \| 'small' \| 'medium' \| 'large' \| 'xlarge'` | `'small'` | The size of the indicator |
 | className | `string` | - | Additional CSS class names |
 | ...props | `React.HTMLAttributes<HTMLDivElement>` | - | Standard HTML div attributes |
@@ -23,7 +23,7 @@ import { AvatarIndicator } from './components/AvatarIndicator';
 ## Type Variants
 
 - **green**: Active/Online status
-- **grey**: Inactive/Offline status (default)
+- **gray**: Inactive/Offline status (default)
 - **red**: Busy/Do not disturb status
 
 ## Size Variants
@@ -40,7 +40,7 @@ The component uses the following design tokens:
 
 - Colors:
   - `--cbds-bg-positive-default` (green)
-  - `--cbds-bg-neutral-weak` (grey)
+  - `--cbds-bg-neutral-weak` (gray)
   - `--cbds-bg-danger-default` (red)
   - `--cbds-border-tertiary` (border)
 

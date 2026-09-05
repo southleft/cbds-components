@@ -28,9 +28,9 @@
 }
 
 /**
- * Grey indicator - Inactive/Offline status (default)
+ * Gray indicator - Inactive/Offline status (default)
  */
-.cbds-c-avatar-indicator--grey {
+.cbds-c-avatar-indicator--gray {
   background-color: var(--cbds-bg-neutral-weak);
 }
 

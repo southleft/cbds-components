@@ -43,7 +43,7 @@ export const TokenShowcase: React.FC<TokenShowcaseProps> = ({ className }) => {
   // Color palettes data
   const colorPalettes = [
     {
-      name: 'Grey',
+      name: 'Gray',
       colors: ['100', '150', '200', '300', '400', '450', '500', '600', '700', '800', '900', '1000']
     },
     {

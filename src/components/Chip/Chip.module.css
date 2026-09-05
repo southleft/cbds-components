@@ -84,7 +84,7 @@
  *
  * Figma binds the outline stroke to the bg/* tokens rather than border/*.
  * Matching that binding matters for neutral, where border-neutral-default
- * (#a2aebf) is a visibly lighter grey than bg-neutral-default (#3a475b).
+ * (#a2aebf) is a visibly lighter gray than bg-neutral-default (#3a475b).
  */
 .cbds-c-chip--brand.cbds-c-chip--outline {
   background-color: var(--cbds-bg-surface-primary);

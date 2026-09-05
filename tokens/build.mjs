@@ -23,10 +23,10 @@ const DTCG_PATH = "tokens/dtcg/tokens.tokens.json";
 const GLOBAL_PATH = "tokens/json/global.json";
 const OUT_DIR = "src/styles";
 
-// Collection groups are a Figma organising concept, not part of the public
-// token name — `colour-semantic.bg.brand.default` ships as `--cbds-bg-brand-default`.
+// Collection groups are a Figma organizing concept, not part of the public
+// token name — `color-semantic.bg.brand.default` ships as `--cbds-bg-brand-default`.
 const COLLECTION_GROUPS = new Set([
-  "colour-primitive", "colour-semantic", "number-primitive",
+  "color-primitive", "color-semantic", "number-primitive",
   "text-primitive", "text-semantic", "motion-primitive",
 ]);
 

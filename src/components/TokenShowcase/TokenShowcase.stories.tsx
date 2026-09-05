@@ -13,7 +13,7 @@ const meta: Meta<typeof TokenShowcase> = {
 The TokenShowcase component provides a comprehensive demonstration of all CBDS design tokens including:
 
 - **Semantic Colors**: Brand, success, error, warning, neutral, accent, and info colors
-- **Color Palettes**: Full primitive color scales for grey, blue, green, red, yellow, and indigo
+- **Color Palettes**: Full primitive color scales for gray, blue, green, red, yellow, and indigo
 - **Spacing Scale**: Complete spacing system from 0.125rem to 10rem  
 - **Typography**: Font sizes, weights, and usage guidelines
 - **Elevation**: Shadow styles for different UI layers

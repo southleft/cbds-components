@@ -58,7 +58,7 @@ Two places where this implementation intentionally diverges from a naive reading
 
 1. **Large chip height.** Figma binds the large chip to `component-size/medium = 36px`, but `tokens.css` defines `--cbds-component-size-medium: 32px` (the scale runs 16/24/32/40/48 and has no 36px step). The component honors the token, so a large chip renders **32px**, 4px shorter than the Figma frame. Either the Figma variable or the token scale needs updating.
 
-2. **Outline stroke color.** Figma binds the outline stroke to the `bg/*` tokens, not `border/*`. This matters for the neutral chip: `--cbds-border-neutral-default` is `#a2aebf`, a visibly lighter grey than `--cbds-bg-neutral-default` (`#3a475b`) that the design actually uses. The component follows the Figma binding and uses the `bg/*` tokens for the stroke.
+2. **Outline stroke color.** Figma binds the outline stroke to the `bg/*` tokens, not `border/*`. This matters for the neutral chip: `--cbds-border-neutral-default` is `#a2aebf`, a visibly lighter gray than `--cbds-bg-neutral-default` (`#3a475b`) that the design actually uses. The component follows the Figma binding and uses the `bg/*` tokens for the stroke.
 
 ## Implementation notes
 

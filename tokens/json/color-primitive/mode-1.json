@@ -1,6 +1,6 @@
 {
   "light": {
-    "grey": {
+    "gray": {
       "100": {
         "value": "#fcfeff",
         "type": "color"
@@ -304,7 +304,7 @@
         "type": "color"
       }
     },
-    "grey": {
+    "gray": {
       "50": {
         "value": "#04080d",
         "type": "color"

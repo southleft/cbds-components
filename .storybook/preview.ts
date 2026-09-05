@@ -6,13 +6,13 @@ import "../src/styles/reset.css";
 import "../src/styles/theme.css";
 
 /**
- * The three modes come straight from the `colour semantic` collection in Figma.
+ * The three modes come straight from the `color semantic` collection in Figma.
  * Each maps to a `[data-theme]` selector emitted by `npm run tokens`.
  */
 export const globalTypes = {
   theme: {
     name: "Theme",
-    description: "Colour mode — mirrors the Figma colour semantic collection",
+    description: "Color mode — mirrors the Figma color semantic collection",
     defaultValue: "light",
     toolbar: {
       icon: "paintbrush",
