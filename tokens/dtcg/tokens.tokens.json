@@ -5189,7 +5189,17 @@
       "focus": {
         "$type": "dimension",
         "$value": "2px",
-        "$description": "Stroke weight for focus indicators (2px). Paired with border/focus for colour. Keep at or above 2px so the indicator remains perceivable at standard zoom (WCAG 2.4.11 focus appearance).",
+        "$description": "Stroke weight for focus indicators (2px). Paired with border/focus for colour, and the heavier of the two steps in the border-width scale. Keep at or above 2px so the indicator stays perceivable at standard zoom (WCAG 2.4.11).",
+        "$extensions": {
+          "com.figma.scopes": [
+            "STROKE_FLOAT"
+          ]
+        }
+      },
+      "default": {
+        "$type": "dimension",
+        "$value": "1px",
+        "$description": "Stroke weight for ordinary borders — inputs, cards, dividers, outline buttons and chips (1px). The system uses exactly two stroke weights: this one, and border-width/focus at 2px for focus indicators. Scoped to stroke weight so it is never offered for spacing or radius.",
         "$extensions": {
           "com.figma.scopes": [
             "STROKE_FLOAT"

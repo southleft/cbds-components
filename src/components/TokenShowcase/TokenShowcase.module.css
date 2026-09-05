@@ -32,7 +32,7 @@
 .themeToggle {
   background-color: var(--cbds-bg-brand-default);
   color: var(--cbds-text-inverse-primary);
-  border: 1px solid var(--cbds-border-brand-default);
+  border: var(--cbds-border-width-default) solid var(--cbds-border-brand-default);
   border-radius: var(--cbds-corner-radius-050);
   padding: var(--cbds-spacing-100) var(--cbds-spacing-200);
   font-family: var(--cbds-font-family-primary);
@@ -47,7 +47,7 @@
 }
 
 .themeToggle:focus {
-  outline: 2px solid var(--cbds-border-focus);
+  outline: var(--cbds-border-width-focus) solid var(--cbds-border-focus);
   outline-offset: 2px;
 }
 
@@ -61,7 +61,7 @@
   color: var(--cbds-text-primary);
   margin-bottom: var(--cbds-spacing-300);
   padding-bottom: var(--cbds-spacing-100);
-  border-bottom: 2px solid var(--cbds-border-secondary);
+  border-bottom: var(--cbds-border-width-focus) solid var(--cbds-border-secondary);
 }
 
 .grid {
@@ -94,7 +94,7 @@
 
 .colorPalette {
   background-color: var(--cbds-bg-surface-primary);
-  border: 1px solid var(--cbds-border-secondary);
+  border: var(--cbds-border-width-default) solid var(--cbds-border-secondary);
   border-radius: var(--cbds-corner-radius-100);
   padding: var(--cbds-spacing-200);
 }
@@ -116,7 +116,7 @@
 .colorSwatch {
   aspect-ratio: 1;
   border-radius: var(--cbds-corner-radius-050);
-  border: 1px solid var(--cbds-border-tertiary);
+  border: var(--cbds-border-width-default) solid var(--cbds-border-tertiary);
   position: relative;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -149,7 +149,7 @@
 
 .spacingBox {
   background-color: var(--cbds-bg-surface-secondary);
-  border: 1px solid var(--cbds-border-secondary);
+  border: var(--cbds-border-width-default) solid var(--cbds-border-secondary);
   border-radius: var(--cbds-corner-radius-050);
   padding: var(--cbds-spacing-100);
   text-align: center;
@@ -168,7 +168,7 @@
 
 .typographyExample {
   background-color: var(--cbds-bg-surface-primary);
-  border: 1px solid var(--cbds-border-secondary);
+  border: var(--cbds-border-width-default) solid var(--cbds-border-secondary);
   border-radius: var(--cbds-corner-radius-100);
   padding: var(--cbds-spacing-300);
   margin-bottom: var(--cbds-spacing-200);
@@ -219,7 +219,7 @@
   height: 60px;
   border-radius: var(--cbds-corner-radius-100);
   margin-bottom: var(--cbds-spacing-100);
-  border: 1px solid var(--cbds-border-tertiary);
+  border: var(--cbds-border-width-default) solid var(--cbds-border-tertiary);
 }
 
 .semanticLabel {
@@ -264,7 +264,7 @@
 .interactiveButton {
   padding: var(--cbds-spacing-150) var(--cbds-spacing-300);
   border-radius: var(--cbds-corner-radius-050);
-  border: 1px solid;
+  border: var(--cbds-border-width-default) solid;
   font-family: var(--cbds-font-family-primary);
   font-size: 1rem;
   cursor: pointer;
@@ -284,7 +284,7 @@
 }
 
 .interactiveBrand:focus {
-  outline: 2px solid var(--cbds-border-focus);
+  outline: var(--cbds-border-width-focus) solid var(--cbds-border-focus);
   outline-offset: 2px;
 }
 

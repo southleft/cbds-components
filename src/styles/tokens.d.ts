@@ -119,6 +119,7 @@ export type CBDSToken =
   | '--cbds-border-warning-default'
   | '--cbds-border-warning-hover'
   | '--cbds-border-warning-pressed'
+  | '--cbds-border-width-default'
   | '--cbds-border-width-focus'
   | '--cbds-component-size-large'
   | '--cbds-component-size-medium'
