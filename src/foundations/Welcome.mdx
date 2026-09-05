@@ -10,15 +10,73 @@ import { Meta } from '@storybook/addon-docs/blocks';
     <p className="cbds-welcome__eyebrow">Southleft</p>
     <h1>Context-Based Design Systems Demo</h1>
     <div className="cbds-welcome__dek">
-      The code half of the CBDS UI Kit. Same components, same tokens, same three themes —
-      generated from a Figma file that knows how to describe itself.
+      A React component library built to demonstrate what a context-based design system is,
+      and what changes when your Figma file can describe itself.
     </div>
   </div>
 </div>
 
-## Why this library looks the way it does
+## What is a context-based design system?
 
-Three ideas, and where each one shows up here.
+Most design systems hand code a set of *values* — a hex, a spacing step, a radius. A context-based
+design system hands over **meaning**: what a component is for, how it behaves, which states are real
+props and which are pseudo-classes, and what its accessibility contract is. That context travels
+with the component from design into development, and now into whatever AI sits between the two.
+
+<a className="cbds-welcome__article" href="https://southleft.com/insights/design-systems/context-based-design-systems-a-new-model-for-the-ai-driven-product-lifecycle/" target="_blank" rel="noreferrer">
+  <img src="/cbds-article-thumb.jpg" alt="" />
+  <div className="cbds-welcome__article-body">
+    <span className="cbds-welcome__kicker">Southleft · Insights · 3 July 2025</span>
+    <strong>Context-Based Design Systems: A New Model for the AI-Driven Product Lifecycle</strong>
+    <span className="cbds-welcome__article-dek">
+      “What happens when every step in the product lifecycle inherits context from the one before it?
+      You get a smarter, faster, more accurate way to build — and the start of a new design systems era.”
+    </span>
+    <span className="cbds-welcome__cta">Read the article →</span>
+  </div>
+</a>
+
+## Under the hood
+
+Deliberately unglamorous. There is no component framework underneath this — every component was
+written by hand, so there is nothing sitting between the Figma spec and the DOM to blame or hide behind.
+
+<table className="cbds-welcome__table">
+  <tbody>
+    <tr>
+      <td><strong>Framework</strong></td>
+      <td>React 19.2 with TypeScript 5.9 in strict mode. Built by Vite 7, documented in Storybook 10.6.</td>
+    </tr>
+    <tr>
+      <td><strong>Styling</strong></td>
+      <td>CSS Modules — one <code>.module.css</code> per component, BEM-ish class names (<code>cbds-c-chip--selected</code>). No CSS-in-JS, no utility framework, no Tailwind.</td>
+    </tr>
+    <tr>
+      <td><strong>Component base</strong></td>
+      <td><em>None.</em> Not Radix, not shadcn/ui, not Mantine, MUI, Chakra or Headless UI. Semantics, keyboard behaviour and ARIA are implemented directly from each component's Figma accessibility contract.</td>
+    </tr>
+    <tr>
+      <td><strong>Runtime dependencies</strong></td>
+      <td>Four, in total: <code>react</code>, <code>react-dom</code>, <code>@phosphor-icons/react</code> for iconography, and <code>clsx</code> for class composition.</td>
+    </tr>
+    <tr>
+      <td><strong>Theming</strong></td>
+      <td>509 CSS custom properties generated from 446 Figma variables. Components reference tokens only — never a raw hex or px — which is what lets all three themes work without touching a component.</td>
+    </tr>
+    <tr>
+      <td><strong>Accessibility</strong></td>
+      <td>Storybook's a11y addon runs against every story. Each component's ARIA role, keyboard map and focus behaviour is specified in Figma before it is written in code.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div className="cbds-welcome__aside">
+  <strong>One honest caveat.</strong> <code>@radix-ui/themes</code> does appear in the dependency tree —
+  but only underneath <code>@tpitre/story-ui</code>, the panel used to generate stories during the
+  workshop. It is developer tooling. Nothing the library ships depends on it.
+</div>
+
+## Why this library looks the way it does
 
 <div className="cbds-welcome__grid">
   <div className="cbds-welcome__card">
@@ -51,10 +109,10 @@ Three ideas, and where each one shows up here.
 
 ## What ships, and what doesn't
 
-This library is deliberately the bottom of the dependency graph. Everything above it gets built
-live during the workshop.
+This library is deliberately the bottom of the dependency graph. Everything above it gets built live
+during the workshop.
 
-<table className="cbds-welcome__table">
+<table className="cbds-welcome__table cbds-welcome__table--head">
   <thead>
     <tr><th>Tier</th><th>Components</th><th>Depends on</th></tr>
   </thead>
@@ -66,7 +124,7 @@ live during the workshop.
   </tbody>
 </table>
 
-## Three themes, one token set
+## Tokens and themes
 
 The `colour semantic` collection in Figma has three modes and all three ship. Switch with the
 paintbrush in the toolbar.
@@ -76,8 +134,6 @@ paintbrush in the toolbar.
   <div><span data-theme-chip="dark" /> Dark — <code>[data-theme='dark']</code></div>
   <div><span data-theme-chip="brutalist" /> Brutalist — <code>[data-theme='brutalist']</code></div>
 </div>
-
-## The pipeline
 
 ```
 Figma variables ──► tokens/dtcg/tokens.tokens.json   (W3C DTCG, canonical)
@@ -89,9 +145,8 @@ Figma styles    ──► tokens/json/global.json           (elevation + text st
                     src/styles/tokens.brutalist.css   [data-theme='brutalist']
 ```
 
-446 tokens across six collections, each carrying the description written on the Figma variable.
-`npm run tokens` also reports drift — any `--cbds-*` a component references that no design source
-defines.
+Every token carries the description written on the Figma variable. `npm run tokens` also reports
+drift — any `--cbds-*` a component references that no design source defines.
 
 </div>
 
@@ -137,11 +192,56 @@ defines.
     margin: 0; text-transform: uppercase; letter-spacing: 0.14em;
     font-size: 12px; font-weight: 700; color: #a9c9ff;
   }
+  /* MDX wraps multi-line JSX text in its own <p>; a <p> cannot contain a <p>, and
+     the inner one inherits Storybook's docs colour. Use a div, style descendants. */
   .cbds-welcome__dek, .cbds-welcome__dek p {
     margin: 14px 0 0; font-size: 16px; line-height: 1.55;
     color: rgba(255,255,255,0.92); max-width: 38ch;
   }
   .cbds-welcome__dek p { margin: 0; }
+
+  /* --- article card --- */
+  .cbds-welcome__article {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    margin: 24px 0 0;
+    border: 1px solid var(--cbds-border-secondary, #dfe3eb);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background: var(--cbds-bg-surface-primary, #fff);
+    transition: border-color 150ms ease, transform 150ms ease;
+  }
+  .cbds-welcome__article:hover {
+    border-color: var(--cbds-border-brand-default, #0e61ba);
+    transform: translateY(-2px);
+  }
+  .cbds-welcome__article img {
+    width: 100%; height: 100%; object-fit: cover; display: block; min-height: 170px;
+  }
+  .cbds-welcome__article-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; }
+  .cbds-welcome__article-body strong { font-size: 17px; line-height: 1.3; }
+  .cbds-welcome__kicker {
+    font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--cbds-text-secondary, #556275); font-weight: 600;
+  }
+  .cbds-welcome__article-dek, .cbds-welcome__article-dek p {
+    font-size: 14px; line-height: 1.6; color: var(--cbds-text-secondary, #556275); margin: 0;
+  }
+  .cbds-welcome__cta { font-size: 14px; font-weight: 600; color: var(--cbds-text-link-default, #0e61ba); }
+
+  /* --- aside --- */
+  .cbds-welcome__aside, .cbds-welcome__aside p {
+    font-size: 14px; line-height: 1.6; margin: 0;
+  }
+  .cbds-welcome__aside {
+    margin-top: 20px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--cbds-border-secondary, #dfe3eb);
+    background: var(--cbds-bg-surface-secondary, #f5f7fa);
+    border-radius: 0 4px 4px 0;
+  }
 
   .cbds-welcome__grid {
     display: grid; gap: 1px; background: var(--cbds-border-tertiary, #e6e9ee);
@@ -158,9 +258,14 @@ defines.
     padding: 8px 12px; border-bottom: 1px solid var(--cbds-border-secondary, #dfe3eb);
     color: var(--cbds-text-secondary, #556275);
   }
-  .cbds-welcome__table td { padding: 10px 12px; border-bottom: 1px solid var(--cbds-border-tertiary, #f0f2f5); }
+  .cbds-welcome__table td {
+    padding: 12px; border-bottom: 1px solid var(--cbds-border-tertiary, #f0f2f5);
+    vertical-align: top; line-height: 1.6;
+  }
+  .cbds-welcome__table td:first-child { width: 190px; }
+  .cbds-welcome__table--head td:first-child { width: auto; }
 
-  .cbds-welcome__swatches { display: flex; flex-wrap: wrap; gap: 24px; margin: 16px 0 0; font-size: 14px; }
+  .cbds-welcome__swatches { display: flex; flex-wrap: wrap; gap: 24px; margin: 16px 0 24px; font-size: 14px; }
   .cbds-welcome__swatches > div { display: flex; align-items: center; gap: 8px; }
   [data-theme-chip] {
     width: 18px; height: 18px; border-radius: 4px; display: inline-block;
@@ -175,5 +280,7 @@ defines.
     .cbds-welcome__hero::after {
       background: linear-gradient(180deg, rgba(24,24,24,0.95) 40%, rgba(24,24,24,0.6) 100%);
     }
+    .cbds-welcome__article { grid-template-columns: 1fr; }
+    .cbds-welcome__table td:first-child { width: auto; }
   }
 `}</style>
