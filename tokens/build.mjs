@@ -68,8 +68,9 @@ function renderValue(token, segs) {
       const sign = n < 0 ? "-" : "";
       return `${sign}${Math.abs(n) / 16}rem`;
     }
-    // Line heights stay unitless — they are multiplied against font size in CSS.
-    if (name.startsWith("line-height")) return String(n);
+    // Line heights are absolute px in Figma, not multipliers: font-size-100 is
+    // 12px against line-height-100 of 16px (1.33), rising to 1.60 at the top of
+    // the ramp. Emitting them unitless would compute 16 * font-size.
     return `${n}px`;
   }
   return String(raw);
@@ -127,8 +128,9 @@ function collectGlobal(out) {
       description: "Primary typeface, from the Figma text styles.",
     });
   }
-  // These come from Figma text styles and are absolute pixel line heights,
-  // unlike the unitless `line-height-NNN` scale in the variable collection.
+  // Legacy Tokens Studio spellings, kept so older component CSS keeps resolving.
+  // Prefer the semantic text tokens (label/font-medium, body/line-height-large)
+  // over these auto-numbered indices in new work.
   for (const [key, tok] of Object.entries(g.lineHeights ?? {}))
     out.push({ name: `--cbds-line-heights-${key}`, value: `${parseFloat(tok.value)}px`, description: "" });
   for (const [key, tok] of Object.entries(g.fontSize ?? {}))
