@@ -70,12 +70,6 @@ written by hand, so there is nothing sitting between the Figma spec and the DOM 
   </tbody>
 </table>
 
-<div className="cbds-welcome__aside">
-  <strong>One honest caveat.</strong> <code>@radix-ui/themes</code> does appear in the dependency tree —
-  but only underneath <code>@tpitre/story-ui</code>, the panel used to generate stories during the
-  workshop. It is developer tooling. Nothing the library ships depends on it.
-</div>
-
 ## Why this library looks the way it does
 
 <div className="cbds-welcome__grid">
@@ -230,18 +224,6 @@ drift — any `--cbds-*` a component references that no design source defines.
     font-size: 14px; line-height: 1.6; color: var(--cbds-text-secondary, #556275); margin: 0;
   }
   .cbds-welcome__cta { font-size: 14px; font-weight: 600; color: var(--cbds-text-link-default, #0e61ba); }
-
-  /* --- aside --- */
-  .cbds-welcome__aside, .cbds-welcome__aside p {
-    font-size: 14px; line-height: 1.6; margin: 0;
-  }
-  .cbds-welcome__aside {
-    margin-top: 20px;
-    padding: 14px 18px;
-    border-left: 3px solid var(--cbds-border-secondary, #dfe3eb);
-    background: var(--cbds-bg-surface-secondary, #f5f7fa);
-    border-radius: 0 4px 4px 0;
-  }
 
   .cbds-welcome__grid {
     display: grid; gap: 1px; background: var(--cbds-border-tertiary, #e6e9ee);
