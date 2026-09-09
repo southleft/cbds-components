@@ -31,13 +31,14 @@
     "tokens:watch": "concurrently \"chokidar 'tokens/json/**/*.json' -c 'npm run tokens'\"",
     "dev": "concurrently \"npm run tokens\" \"vite\"",
     "build": "npm run tokens && tsc -b && vite build",
+    "build:lib": "npm run tokens && vite build -c vite.lib.config.ts && tsc -p tsconfig.build.json && node scripts/copy-styles.mjs",
+    "package": "npm run build:lib && npm pack",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "npm run tokens && storybook build",
     "story-ui": "story-ui start --port 4001",
-    "storybook-with-ui": "concurrently \"npm run storybook\" \"npm run story-ui\"",
-    "build:package": "npm run tokens && vite build -c vite.lib.config.ts && tsc -p tsconfig.build.json && node scripts/copy-styles.mjs"
+    "storybook-with-ui": "concurrently \"npm run storybook\" \"npm run story-ui\""
   },
   "peerDependencies": {
     "react": ">=18",

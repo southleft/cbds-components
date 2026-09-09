@@ -104,10 +104,10 @@ Then export it from `src/index.ts` — one line in the matching tier, one in the
 The components ship as an npm package. The app around them — Storybook, the stories, Story UI, `src/main.tsx` — does not: the library build only follows what `src/index.ts` exports, so the workshop tooling stays in the workshop.
 
 ```bash
-npm run build:package
+npm run package
 ```
 
-That one command rebuilds tokens, bundles the components, emits type declarations, and copies the token stylesheets into `dist/`:
+That one command rebuilds tokens, bundles the components, emits type declarations, copies the token stylesheets into `dist/`, and wraps the result in an installable tarball:
 
 ```
 dist/
@@ -129,8 +129,7 @@ React is a **peer** dependency, deliberately. Two copies of React in one app bre
 No registry needed to try it — pack a tarball and install it straight from disk:
 
 ```bash
-npm run build:package
-npm pack                    # → cbds-components-0.1.0.tgz
+npm run package             # → cbds-components-0.1.0.tgz
 ```
 
 ```bash
@@ -174,7 +173,8 @@ Then open **Story UI › Story Generator** in the sidebar. New components in `sr
 | `npm run tokens` | Rebuild CSS from DTCG, and report drift |
 | `npm run storybook` | Storybook dev server |
 | `npm run build` | Tokens, typecheck, production build |
-| `npm run build:package` | **Bundle the components for use in a product** |
+| `npm run package` | **Bundle the components and pack a tarball for use in a product** |
+| `npm run build:lib` | Bundle to `dist/` without packing (`package` runs this first) |
 | `npm run build-storybook` | Static Storybook |
 | `npm run lint` | ESLint |
 | `npm run dev` | Vite dev server (standalone smoke test, not Storybook) |
