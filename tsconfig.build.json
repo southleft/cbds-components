@@ -1,0 +1,22 @@
+{
+  /* Type declarations for the published package.
+     `tsconfig.app.json` is a noEmit typecheck config; this one emits .d.ts
+     for the public surface only — no stories, no workshop fixtures. */
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.build.tsbuildinfo"
+  },
+  "include": ["src/index.ts", "src/vite-env.d.ts"],
+  "exclude": [
+    "src/**/*.stories.tsx",
+    "src/**/*.stories.ts",
+    "src/components/TokenShowcase",
+    "src/stories"
+  ]
+}

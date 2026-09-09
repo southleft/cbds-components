@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dist-app
 *.local
 
 # Editor directories and files
@@ -44,3 +45,6 @@ src/stories/.story-ui/
 # Story UI panel source is scaffolded by `npx story-ui init`, not checked in
 src/stories/StoryUIV2/
 
+
+# Packed library tarballs
+*.tgz

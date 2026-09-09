@@ -97,6 +97,65 @@ src/components/MyComponent/
 
 Style exclusively through tokens — `color: var(--cbds-text-primary)`, `padding: var(--cbds-spacing-200)` — never raw hex or px. That is what makes all three themes work for free, and what the drift check enforces.
 
+Then export it from `src/index.ts` — one line in the matching tier, one in the types block. That file is the package's public surface: **if it is not exported there, it is not in the bundle.**
+
+## Bundling for a product
+
+The components ship as an npm package. The app around them — Storybook, the stories, Story UI, `src/main.tsx` — does not: the library build only follows what `src/index.ts` exports, so the workshop tooling stays in the workshop.
+
+```bash
+npm run build:package
+```
+
+That one command rebuilds tokens, bundles the components, emits type declarations, and copies the token stylesheets into `dist/`:
+
+```
+dist/
+  index.js          ES module — every component
+  index.d.ts        types
+  styles.css        every component's CSS Modules, bundled
+  tokens/
+    tokens.css      :root — light + primitives
+    tokens.dark.css [data-theme='dark']
+    …
+```
+
+Component CSS is bundled automatically. The token layer is not — it is global CSS that no component imports, so the bundler never sees it and a copy step brings it along. Without it the package ships components whose every `var(--cbds-*)` resolves to nothing.
+
+React is a **peer** dependency, deliberately. Two copies of React in one app breaks hooks, so the consuming product supplies it. `clsx` and `@phosphor-icons/react` stay real dependencies and install themselves.
+
+### Using it in a product
+
+No registry needed to try it — pack a tarball and install it straight from disk:
+
+```bash
+npm run build:package
+npm pack                    # → cbds-components-0.1.0.tgz
+```
+
+```bash
+# in the Next.js (or Vite, or Remix) app
+npm install ../cbds-components/cbds-components-0.1.0.tgz
+```
+
+Import the tokens **before** the component styles — the cascade depends on it — then use the components:
+
+```tsx
+import 'cbds-components/tokens.css';   // must come first
+import 'cbds-components/theme.css';    // optional: semantic aliases
+import 'cbds-components/styles.css';
+
+import { Chip, Icon, ProgressBar } from 'cbds-components';
+```
+
+Add `import 'cbds-components/tokens/dark.css'` for the dark theme, then set `data-theme="dark"` on `<html>`.
+
+Use the tarball rather than `npm link` — linking resolves React through *this* repo's `node_modules` as well as the app's, which is exactly the duplicate-React failure the peer dependency exists to avoid.
+
+### Publishing for real
+
+The package is still `private: true`, which blocks `npm publish` but not `npm pack` — the tarball workflow above works as-is, with no way to publish by accident. When it should live in a registry, set `private: false`, bump the version, and point `publishConfig` at your registry. Nothing else about the build changes; only the consumer's install line does.
+
 ## Story UI
 
 [Story UI](https://www.npmjs.com/package/@tpitre/story-ui) generates Storybook stories from natural language, and is how components get built during the session.
@@ -115,6 +174,7 @@ Then open **Story UI › Story Generator** in the sidebar. New components in `sr
 | `npm run tokens` | Rebuild CSS from DTCG, and report drift |
 | `npm run storybook` | Storybook dev server |
 | `npm run build` | Tokens, typecheck, production build |
+| `npm run build:package` | **Bundle the components for use in a product** |
 | `npm run build-storybook` | Static Storybook |
 | `npm run lint` | ESLint |
 | `npm run dev` | Vite dev server (standalone smoke test, not Storybook) |

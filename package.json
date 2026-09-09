@@ -1,8 +1,31 @@
 {
   "name": "cbds-components",
+  "description": "CBDS design system components.",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./tokens.css": "./dist/tokens/tokens.css",
+    "./tokens/dark.css": "./dist/tokens/tokens.dark.css",
+    "./tokens/brutalist.css": "./dist/tokens/tokens.brutalist.css",
+    "./theme.css": "./dist/tokens/theme.css",
+    "./reset.css": "./dist/tokens/reset.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "tokens": "node tokens/build.mjs",
     "tokens:watch": "concurrently \"chokidar 'tokens/json/**/*.json' -c 'npm run tokens'\"",
@@ -13,13 +36,16 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "npm run tokens && storybook build",
     "story-ui": "story-ui start --port 4001",
-    "storybook-with-ui": "concurrently \"npm run storybook\" \"npm run story-ui\""
+    "storybook-with-ui": "concurrently \"npm run storybook\" \"npm run story-ui\"",
+    "build:package": "npm run tokens && vite build -c vite.lib.config.ts && tsc -p tsconfig.build.json && node scripts/copy-styles.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
-    "clsx": "^2.1.1",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.1.1",
@@ -46,7 +72,9 @@
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.43.0",
     "vite": "^7.1.5",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "overrides": {
     "qs": "^6.16.0"
