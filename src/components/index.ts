@@ -14,8 +14,15 @@ export { TokenShowcase } from './TokenShowcase/TokenShowcase';
 // Atomics — compose Icon, nothing deeper
 export { ProgressBar } from './ProgressBar/ProgressBar';
 export { Chip } from './Chip/Chip';
+export { BadgeNotification } from './BadgeNotification/BadgeNotification';
 
 export type { IconProps, IconSize, IconWeight } from './Icon/Icon';
 export type { AvatarIndicatorProps } from './AvatarIndicator/AvatarIndicator';
 export type { ProgressBarProps, ProgressBarType, ProgressBarSize } from './ProgressBar/ProgressBar';
 export type { ChipProps, ChipType, ChipStyle, ChipSize } from './Chip/Chip';
+export type {
+  BadgeNotificationProps,
+  BadgeNotificationType,
+  BadgeNotificationStyle,
+  BadgeNotificationSize,
+} from './BadgeNotification/BadgeNotification';
