@@ -159,32 +159,39 @@ The package is still `private: true`, which blocks `npm publish` but not `npm pa
 
 `@storybook/addon-mcp` is enabled, so while Storybook is running it serves an MCP endpoint at <http://localhost:6006/mcp>. An MCP client (Claude Code, Cursor, etc.) can use it to list components, read their props and docs, and get story preview URLs.
 
-The repo ships a project-scoped `.mcp.json` pointing at that endpoint. In Claude Code, approve the `storybook-mcp` server when prompted, or add it yourself:
-
-```bash
-claude mcp add --transport http storybook-mcp http://localhost:6006/mcp
-```
-
-Not using Claude Code? This works with most agents:
+Start Storybook first (`npm run storybook`); the server only exists while it runs. Then connect your agent. This works with most agents:
 
 ```bash
 npx mcp-add --type http --url "http://localhost:6006/mcp" --scope project
 ```
 
-Agent instructions for using the server (check `docs-list`/`docs-show` before guessing props, and so on) live in `AGENTS.md`, which `CLAUDE.md` imports.
+In Claude Code you can add it directly instead:
 
-Start Storybook first (`npm run storybook`); the server only exists while it runs. If you change the port, update `.mcp.json` to match.
+```bash
+claude mcp add --transport http storybook-mcp http://localhost:6006/mcp
+```
+
+Agent instructions for using the server (check `docs-list`/`docs-show` before guessing props, and so on) live in `AGENTS.md`, which `CLAUDE.md` imports. If you change the port, use the new one in the command.
 
 ## Story UI
 
 [Story UI](https://www.npmjs.com/package/@tpitre/story-ui) generates Storybook stories from natural language, and is how components get built during the session.
 
+The panel's source lives in `src/stories/StoryUI/` and is checked in, because `.storybook/manager.ts` imports it. To generate with it, put an Anthropic API key in a `.env` file at the repo root (it is gitignored):
+
 ```bash
-npx story-ui init          # first run only; asks for a Claude API key
-npm run storybook-with-ui  # Storybook + Story UI together
+ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-Then open **Story UI › Story Generator** in the sidebar. New components in `src/components/` are picked up without a restart.
+Then run Storybook and Story UI together:
+
+```bash
+npm run storybook-with-ui
+```
+
+Open **Story UI › Story Generator** in the sidebar. New components in `src/components/` are picked up without a restart.
+
+After upgrading `@tpitre/story-ui`, run `npx story-ui update` to refresh the checked-in panel files, then clear `node_modules/.vite` and restart.
 
 ## Scripts
 

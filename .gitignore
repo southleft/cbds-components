@@ -33,7 +33,6 @@ tokens/*.zip
 
 .env
 src/stories/generated
-src/stories/StoryUI/
 .story-ui-history/
 
 # Local tool / assistant state (machine-specific, not part of the library)
@@ -42,8 +41,10 @@ src/stories/StoryUI/
 .story-ui/
 src/stories/.story-ui/
 
-# Story UI panel source is scaffolded by `npx story-ui init`, not checked in
-src/stories/StoryUIV2/
+# Story UI panel source (src/stories/StoryUI, StoryUIV2) IS checked in:
+# .storybook/manager.ts imports it, so a fresh clone must not start without it.
+# Refresh it with `npx story-ui update`; the backups that command writes are not kept.
+*.backup-*
 
 
 # Packed library tarballs

@@ -38,8 +38,9 @@ with the component from design into development, and now into whatever AI sits b
 
 ## Under the hood
 
-Deliberately unglamorous. There is no component framework underneath this — every component was
-written by hand, so there is nothing sitting between the Figma spec and the DOM to blame or hide behind.
+Deliberately unglamorous. There is no component framework underneath this — the components are
+plain React and CSS, generated from the Figma spec, so there is nothing sitting between the spec
+and the DOM to blame or hide behind.
 
 <table className="cbds-welcome__table">
   <tbody>
@@ -61,11 +62,11 @@ written by hand, so there is nothing sitting between the Figma spec and the DOM 
     </tr>
     <tr>
       <td><strong>Theming</strong></td>
-      <td>509 CSS custom properties generated from 446 Figma variables. Components reference tokens only — never a raw hex or px — which is what lets all three themes work without touching a component.</td>
+      <td>510 CSS custom properties generated from 446 Figma variables. Components reference tokens only — never a raw hex or px — which is what lets all three themes work without touching a component.</td>
     </tr>
     <tr>
       <td><strong>Accessibility</strong></td>
-      <td>Storybook's a11y addon runs against every story. Each component's ARIA role, keyboard map and focus behavior is specified in Figma before it is written in code.</td>
+      <td>Storybook's a11y addon checks every story and reports violations in the panel (it is set to report, not to fail the build). Each component's ARIA role, keyboard map and focus behavior is specified in Figma before it is written in code.</td>
     </tr>
   </tbody>
 </table>

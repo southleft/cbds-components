@@ -45,7 +45,9 @@ const preview: Preview = {
     a11y: { test: "todo" },
     options: {
       storySort: {
-        order: ["Welcome", "Foundations", "Primitives", "Atomics", "*"],
+        // Tiers in dependency order. Anything new lands after Atomics (via "*"),
+        // ahead of the tooling groups, so work built in the workshop stays on top.
+        order: ["Welcome", "Foundations", "Primitives", "Atomics", "*", "Generated", "Story UI"],
       },
     },
   },
