@@ -35,7 +35,7 @@
     "package": "npm run build:lib && npm pack",
     "lint": "eslint .",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "node ./.storybook/story-ui-storybook.mjs dev -p 6006",
     "build-storybook": "npm run tokens && storybook build",
     "story-ui": "story-ui start --port 4001",
     "storybook-with-ui": "concurrently \"npm run storybook\" \"npm run story-ui\""

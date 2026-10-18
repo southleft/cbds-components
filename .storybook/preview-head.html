@@ -1,3 +1,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+<style>
+  /* Story UI: the preview root fills the canvas, so a story's width never follows its content.
+     Storybook's default #storybook-root is block-level and fills its parent;
+     a preview stylesheet that centres the body turns it into a shrink-to-fit
+     flex item, and the page then resizes whenever its content changes.
+     Not applied to layout: 'centered', where hugging the content is intended. */
+  body:not(.sb-main-centered) #storybook-root { width: 100%; }
+</style>

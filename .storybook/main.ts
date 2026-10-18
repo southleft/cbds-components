@@ -42,6 +42,18 @@ const config: StorybookConfig = {
         '@tpitre/story-ui > @radix-ui/themes > classnames'
       ]
     };
+    // Story UI: keep Vite's own module watcher alive on macOS. Storybook's story
+    // INDEX watcher and Vite's MODULE watcher are different watchers. Measured on
+    // a Storybook running for seven hours: a story rewritten on disk was never
+    // re-transformed — still serving the previous bytes after 90 seconds — so a
+    // repair was re-checked against the render it was meant to replace. With
+    // polling the same edit was served in 1 second.
+    if (process.platform === 'darwin') {
+      config.server = {
+        ...config.server,
+        watch: { ...(config.server?.watch ?? {}), usePolling: true, interval: 300 },
+      };
+    }
     return config;
   },
 };
