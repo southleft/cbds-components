@@ -155,6 +155,26 @@ Use the tarball rather than `npm link` — linking resolves React through *this*
 
 The package is still `private: true`, which blocks `npm publish` but not `npm pack` — the tarball workflow above works as-is, with no way to publish by accident. When it should live in a registry, set `private: false`, bump the version, and point `publishConfig` at your registry. Nothing else about the build changes; only the consumer's install line does.
 
+## Storybook MCP
+
+`@storybook/addon-mcp` is enabled, so while Storybook is running it serves an MCP endpoint at <http://localhost:6006/mcp>. An MCP client (Claude Code, Cursor, etc.) can use it to list components, read their props and docs, and get story preview URLs.
+
+The repo ships a project-scoped `.mcp.json` pointing at that endpoint. In Claude Code, approve the `storybook-mcp` server when prompted, or add it yourself:
+
+```bash
+claude mcp add --transport http storybook-mcp http://localhost:6006/mcp
+```
+
+Not using Claude Code? This works with most agents:
+
+```bash
+npx mcp-add --type http --url "http://localhost:6006/mcp" --scope project
+```
+
+Agent instructions for using the server (check `docs-list`/`docs-show` before guessing props, and so on) live in `AGENTS.md`, which `CLAUDE.md` imports.
+
+Start Storybook first (`npm run storybook`); the server only exists while it runs. If you change the port, update `.mcp.json` to match.
+
 ## Story UI
 
 [Story UI](https://www.npmjs.com/package/@tpitre/story-ui) generates Storybook stories from natural language, and is how components get built during the session.

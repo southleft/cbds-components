@@ -15,8 +15,11 @@ const config: StorybookConfig = {
 
   addons: [
     "@storybook/addon-a11y",
-    "@storybook/addon-docs"
+    "@storybook/addon-docs",
+    "@storybook/addon-mcp"
   ],
+
+  features: { componentsManifest: true },
 
   framework: { name: "@storybook/react-vite", options: {} },
   staticDirs: ['../public'],
