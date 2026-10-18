@@ -18,7 +18,6 @@ export { AvatarIndicator } from "./components/AvatarIndicator/AvatarIndicator";
 /* Atomics — compose Icon, nothing deeper */
 export { ProgressBar } from "./components/ProgressBar/ProgressBar";
 export { Chip } from "./components/Chip/Chip";
-export { BadgeNotification } from "./components/BadgeNotification/BadgeNotification";
 
 /* Types */
 export type { IconProps, IconSize, IconWeight } from "./components/Icon/Icon";
@@ -29,9 +28,3 @@ export type {
   ProgressBarSize,
 } from "./components/ProgressBar/ProgressBar";
 export type { ChipProps, ChipType, ChipStyle, ChipSize } from "./components/Chip/Chip";
-export type {
-  BadgeNotificationProps,
-  BadgeNotificationType,
-  BadgeNotificationStyle,
-  BadgeNotificationSize,
-} from "./components/BadgeNotification/BadgeNotification";
